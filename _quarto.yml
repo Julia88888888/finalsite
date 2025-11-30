@@ -1,0 +1,30 @@
+project:
+  type: website
+
+website:
+  title: "CPLN Final Project Report"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Overview
+      - href: FinalDraft.ipynb
+        text: Final Report
+      - href: about.qmd
+        text: Team
+  page-footer:
+    center: |
+      © 2025 | CPLN 6500 Final Project  
+      Authors: Chuwen Zhong · Xingyan Shi · Ziyue Li
+
+format:
+  html:
+    theme: flatly
+    toc: true
+    toc-location: left
+    number-sections: true
+    code-fold: true
+
+execute:
+  enabled: false
+publish:
+  gh-pages: true
