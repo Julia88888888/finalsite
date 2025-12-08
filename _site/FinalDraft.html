@@ -2876,60 +2876,58 @@ dtype: int64</code></pre>
 <span id="cb32-13"><a href="#cb32-13" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<div id="c06a31c5-fba5-4048-ac7c-be63c206b195" class="cell" data-execution_count="24">
+<div id="c06a31c5-fba5-4048-ac7c-be63c206b195" class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.ticker <span class="im">as</span> ticker</span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">14</span>, <span class="dv">6</span>))</span>
 <span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a><span class="co"># ---- 左图：Income ----</span></span>
-<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>income_ax <span class="op">=</span> axes[<span class="dv">0</span>]</span>
-<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a>income_geo.plot(</span>
-<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a>    column<span class="op">=</span><span class="st">"B19013_001E"</span>,</span>
-<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a>    cmap<span class="op">=</span><span class="st">"viridis"</span>,</span>
-<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a>    ax<span class="op">=</span>income_ax,</span>
-<span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a>    legend<span class="op">=</span><span class="va">False</span></span>
-<span id="cb33-13"><a href="#cb33-13" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb33-14"><a href="#cb33-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-15"><a href="#cb33-15" aria-hidden="true" tabindex="-1"></a>income_ax.set_title(<span class="st">"Median Household Income"</span>)</span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>income_ax <span class="op">=</span> axes[<span class="dv">0</span>]</span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>income_geo.plot(</span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a>    column<span class="op">=</span><span class="st">"B19013_001E"</span>,</span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a>    cmap<span class="op">=</span><span class="st">"viridis"</span>,</span>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a>    ax<span class="op">=</span>income_ax,</span>
+<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a>    legend<span class="op">=</span><span class="va">False</span></span>
+<span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb33-13"><a href="#cb33-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-14"><a href="#cb33-14" aria-hidden="true" tabindex="-1"></a>income_ax.set_title(<span class="st">"Median Household Income"</span>)</span>
+<span id="cb33-15"><a href="#cb33-15" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb33-16"><a href="#cb33-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-17"><a href="#cb33-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-18"><a href="#cb33-18" aria-hidden="true" tabindex="-1"></a>sm_income <span class="op">=</span> plt.cm.ScalarMappable(</span>
-<span id="cb33-19"><a href="#cb33-19" aria-hidden="true" tabindex="-1"></a>    cmap<span class="op">=</span><span class="st">"viridis"</span>,</span>
-<span id="cb33-20"><a href="#cb33-20" aria-hidden="true" tabindex="-1"></a>    norm<span class="op">=</span>plt.Normalize(</span>
-<span id="cb33-21"><a href="#cb33-21" aria-hidden="true" tabindex="-1"></a>        vmin<span class="op">=</span>income_geo[<span class="st">"B19013_001E"</span>].<span class="bu">min</span>(),</span>
-<span id="cb33-22"><a href="#cb33-22" aria-hidden="true" tabindex="-1"></a>        vmax<span class="op">=</span>income_geo[<span class="st">"B19013_001E"</span>].<span class="bu">max</span>()</span>
-<span id="cb33-23"><a href="#cb33-23" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb33-24"><a href="#cb33-24" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb33-25"><a href="#cb33-25" aria-hidden="true" tabindex="-1"></a>sm_income._A <span class="op">=</span> []</span>
+<span id="cb33-17"><a href="#cb33-17" aria-hidden="true" tabindex="-1"></a>sm_income <span class="op">=</span> plt.cm.ScalarMappable(</span>
+<span id="cb33-18"><a href="#cb33-18" aria-hidden="true" tabindex="-1"></a>    cmap<span class="op">=</span><span class="st">"viridis"</span>,</span>
+<span id="cb33-19"><a href="#cb33-19" aria-hidden="true" tabindex="-1"></a>    norm<span class="op">=</span>plt.Normalize(</span>
+<span id="cb33-20"><a href="#cb33-20" aria-hidden="true" tabindex="-1"></a>        vmin<span class="op">=</span>income_geo[<span class="st">"B19013_001E"</span>].<span class="bu">min</span>(),</span>
+<span id="cb33-21"><a href="#cb33-21" aria-hidden="true" tabindex="-1"></a>        vmax<span class="op">=</span>income_geo[<span class="st">"B19013_001E"</span>].<span class="bu">max</span>()</span>
+<span id="cb33-22"><a href="#cb33-22" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb33-23"><a href="#cb33-23" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb33-24"><a href="#cb33-24" aria-hidden="true" tabindex="-1"></a>sm_income._A <span class="op">=</span> []</span>
+<span id="cb33-25"><a href="#cb33-25" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb33-26"><a href="#cb33-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-27"><a href="#cb33-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-28"><a href="#cb33-28" aria-hidden="true" tabindex="-1"></a>cbar_income <span class="op">=</span> fig.colorbar(</span>
-<span id="cb33-29"><a href="#cb33-29" aria-hidden="true" tabindex="-1"></a>    sm_income,</span>
-<span id="cb33-30"><a href="#cb33-30" aria-hidden="true" tabindex="-1"></a>    ax<span class="op">=</span>income_ax,</span>
-<span id="cb33-31"><a href="#cb33-31" aria-hidden="true" tabindex="-1"></a>    orientation<span class="op">=</span><span class="st">'vertical'</span>,</span>
-<span id="cb33-32"><a href="#cb33-32" aria-hidden="true" tabindex="-1"></a>    fraction<span class="op">=</span><span class="fl">0.046</span>,</span>
-<span id="cb33-33"><a href="#cb33-33" aria-hidden="true" tabindex="-1"></a>    pad<span class="op">=</span><span class="fl">0.04</span></span>
-<span id="cb33-34"><a href="#cb33-34" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb33-35"><a href="#cb33-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-36"><a href="#cb33-36" aria-hidden="true" tabindex="-1"></a>cbar_income.ax.yaxis.set_major_formatter(ticker.FormatStrFormatter(<span class="st">'</span><span class="sc">%d</span><span class="st">'</span>))</span>
-<span id="cb33-37"><a href="#cb33-37" aria-hidden="true" tabindex="-1"></a>cbar_income.set_label(<span class="st">"Median Household Income"</span>)</span>
+<span id="cb33-27"><a href="#cb33-27" aria-hidden="true" tabindex="-1"></a>cbar_income <span class="op">=</span> fig.colorbar(</span>
+<span id="cb33-28"><a href="#cb33-28" aria-hidden="true" tabindex="-1"></a>    sm_income,</span>
+<span id="cb33-29"><a href="#cb33-29" aria-hidden="true" tabindex="-1"></a>    ax<span class="op">=</span>income_ax,</span>
+<span id="cb33-30"><a href="#cb33-30" aria-hidden="true" tabindex="-1"></a>    orientation<span class="op">=</span><span class="st">'vertical'</span>,</span>
+<span id="cb33-31"><a href="#cb33-31" aria-hidden="true" tabindex="-1"></a>    fraction<span class="op">=</span><span class="fl">0.046</span>,</span>
+<span id="cb33-32"><a href="#cb33-32" aria-hidden="true" tabindex="-1"></a>    pad<span class="op">=</span><span class="fl">0.04</span></span>
+<span id="cb33-33"><a href="#cb33-33" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb33-34"><a href="#cb33-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-35"><a href="#cb33-35" aria-hidden="true" tabindex="-1"></a>cbar_income.ax.yaxis.set_major_formatter(ticker.FormatStrFormatter(<span class="st">'</span><span class="sc">%d</span><span class="st">'</span>))</span>
+<span id="cb33-36"><a href="#cb33-36" aria-hidden="true" tabindex="-1"></a>cbar_income.set_label(<span class="st">"Median Household Income"</span>)</span>
+<span id="cb33-37"><a href="#cb33-37" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb33-38"><a href="#cb33-38" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb33-39"><a href="#cb33-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-40"><a href="#cb33-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-41"><a href="#cb33-41" aria-hidden="true" tabindex="-1"></a><span class="co"># ---- 右图：Transit Share ----</span></span>
-<span id="cb33-42"><a href="#cb33-42" aria-hidden="true" tabindex="-1"></a>transit_geo.plot(</span>
-<span id="cb33-43"><a href="#cb33-43" aria-hidden="true" tabindex="-1"></a>    column<span class="op">=</span><span class="st">"transit_share"</span>,</span>
-<span id="cb33-44"><a href="#cb33-44" aria-hidden="true" tabindex="-1"></a>    cmap<span class="op">=</span><span class="st">"Blues"</span>,</span>
-<span id="cb33-45"><a href="#cb33-45" aria-hidden="true" tabindex="-1"></a>    ax<span class="op">=</span>axes[<span class="dv">1</span>],</span>
-<span id="cb33-46"><a href="#cb33-46" aria-hidden="true" tabindex="-1"></a>    legend<span class="op">=</span><span class="va">True</span></span>
-<span id="cb33-47"><a href="#cb33-47" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb33-48"><a href="#cb33-48" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>].set_title(<span class="st">"Public Transit Share"</span>)</span>
-<span id="cb33-49"><a href="#cb33-49" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-50"><a href="#cb33-50" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb33-51"><a href="#cb33-51" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb33-40"><a href="#cb33-40" aria-hidden="true" tabindex="-1"></a>transit_geo.plot(</span>
+<span id="cb33-41"><a href="#cb33-41" aria-hidden="true" tabindex="-1"></a>    column<span class="op">=</span><span class="st">"transit_share"</span>,</span>
+<span id="cb33-42"><a href="#cb33-42" aria-hidden="true" tabindex="-1"></a>    cmap<span class="op">=</span><span class="st">"Blues"</span>,</span>
+<span id="cb33-43"><a href="#cb33-43" aria-hidden="true" tabindex="-1"></a>    ax<span class="op">=</span>axes[<span class="dv">1</span>],</span>
+<span id="cb33-44"><a href="#cb33-44" aria-hidden="true" tabindex="-1"></a>    legend<span class="op">=</span><span class="va">True</span></span>
+<span id="cb33-45"><a href="#cb33-45" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb33-46"><a href="#cb33-46" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>].set_title(<span class="st">"Public Transit Share"</span>)</span>
+<span id="cb33-47"><a href="#cb33-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-48"><a href="#cb33-48" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb33-49"><a href="#cb33-49" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>
@@ -2946,29 +2944,25 @@ dtype: int64</code></pre>
 <h3 data-number="0.3" class="anchored" data-anchor-id="part-iii.-a-study-on-the-distribution-of-service-reductions-in-cities"><span class="header-section-number">0.3</span> Part III. A Study on the Distribution of Service Reductions in Cities</h3>
 <section id="spatial-distribution-of-income-transit-dependence-and-headway-reductions" class="level4" data-number="0.3.1">
 <h4 data-number="0.3.1" class="anchored" data-anchor-id="spatial-distribution-of-income-transit-dependence-and-headway-reductions"><span class="header-section-number">0.3.1</span> Spatial Distribution of Income, Transit Dependence, and Headway Reductions</h4>
-<div id="94e90879-376c-4100-aa93-da99e7ec8ffb" class="cell" data-execution_count="25">
+<div id="94e90879-376c-4100-aa93-da99e7ec8ffb" class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co">#然后再把线路消减的信息和census merge上</span></span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="co">#先统一一下坐标系</span></span>
-<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>income_geo <span class="op">=</span> income_geo.to_crs(reschedule_result.crs)</span>
-<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>transit_geo <span class="op">=</span> transit_geo.to_crs(reschedule_result.crs)</span>
-<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 合并 census 两个变量</span></span>
-<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a>census <span class="op">=</span> income_geo[[<span class="st">"GEOID"</span>, <span class="st">"B19013_001E"</span>, <span class="st">"geometry"</span>]].merge(</span>
-<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a>    transit_geo[[<span class="st">"GEOID"</span>, <span class="st">"transit_share"</span>]],</span>
-<span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a>    on<span class="op">=</span><span class="st">"GEOID"</span>,</span>
-<span id="cb34-11"><a href="#cb34-11" aria-hidden="true" tabindex="-1"></a>    how<span class="op">=</span><span class="st">"left"</span></span>
-<span id="cb34-12"><a href="#cb34-12" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb34-13"><a href="#cb34-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-14"><a href="#cb34-14" aria-hidden="true" tabindex="-1"></a><span class="co"># 空间叠加：census intersect routes</span></span>
-<span id="cb34-15"><a href="#cb34-15" aria-hidden="true" tabindex="-1"></a>affected <span class="op">=</span> gpd.sjoin(</span>
-<span id="cb34-16"><a href="#cb34-16" aria-hidden="true" tabindex="-1"></a>    census,</span>
-<span id="cb34-17"><a href="#cb34-17" aria-hidden="true" tabindex="-1"></a>    reschedule_result,    </span>
-<span id="cb34-18"><a href="#cb34-18" aria-hidden="true" tabindex="-1"></a>    how<span class="op">=</span><span class="st">"inner"</span>,</span>
-<span id="cb34-19"><a href="#cb34-19" aria-hidden="true" tabindex="-1"></a>    predicate<span class="op">=</span><span class="st">"intersects"</span></span>
-<span id="cb34-20"><a href="#cb34-20" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>income_geo <span class="op">=</span> income_geo.to_crs(reschedule_result.crs)</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>transit_geo <span class="op">=</span> transit_geo.to_crs(reschedule_result.crs)</span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>census <span class="op">=</span> income_geo[[<span class="st">"GEOID"</span>, <span class="st">"B19013_001E"</span>, <span class="st">"geometry"</span>]].merge(</span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>    transit_geo[[<span class="st">"GEOID"</span>, <span class="st">"transit_share"</span>]],</span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a>    on<span class="op">=</span><span class="st">"GEOID"</span>,</span>
+<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a>    how<span class="op">=</span><span class="st">"left"</span></span>
+<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-11"><a href="#cb34-11" aria-hidden="true" tabindex="-1"></a>affected <span class="op">=</span> gpd.sjoin(</span>
+<span id="cb34-12"><a href="#cb34-12" aria-hidden="true" tabindex="-1"></a>    census,</span>
+<span id="cb34-13"><a href="#cb34-13" aria-hidden="true" tabindex="-1"></a>    reschedule_result,    </span>
+<span id="cb34-14"><a href="#cb34-14" aria-hidden="true" tabindex="-1"></a>    how<span class="op">=</span><span class="st">"inner"</span>,</span>
+<span id="cb34-15"><a href="#cb34-15" aria-hidden="true" tabindex="-1"></a>    predicate<span class="op">=</span><span class="st">"intersects"</span></span>
+<span id="cb34-16"><a href="#cb34-16" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 <div id="1d2ea2b1-a567-4f52-a98f-140aafe03fb6" class="cell" data-execution_count="26">
@@ -2977,146 +2971,145 @@ dtype: int64</code></pre>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>affected.to_file(<span class="st">"../Python_FinalProject/Dataset/affected.geojson"</span>, driver<span class="op">=</span><span class="st">"GeoJSON"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<div id="4bc9d5a9-9c47-43d6-9f0e-b68f98f70b22" class="cell" data-execution_count="27">
+<div id="4bc9d5a9-9c47-43d6-9f0e-b68f98f70b22" class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 把affect图画出来看一下哪里消减的比较多</span></span>
-<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">16</span>, <span class="dv">12</span>))</span>
-<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a><span class="co"># =====================================================</span></span>
-<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Row 1, Col 1: Income</span></span>
-<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a><span class="co"># =====================================================</span></span>
-<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a>income_ax <span class="op">=</span> axes[<span class="dv">0</span>, <span class="dv">0</span>]</span>
-<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-9"><a href="#cb36-9" aria-hidden="true" tabindex="-1"></a>income_geo.plot(</span>
-<span id="cb36-10"><a href="#cb36-10" aria-hidden="true" tabindex="-1"></a>    column<span class="op">=</span><span class="st">"B19013_001E"</span>,</span>
-<span id="cb36-11"><a href="#cb36-11" aria-hidden="true" tabindex="-1"></a>    cmap<span class="op">=</span><span class="st">"viridis"</span>,</span>
-<span id="cb36-12"><a href="#cb36-12" aria-hidden="true" tabindex="-1"></a>    ax<span class="op">=</span>income_ax,</span>
-<span id="cb36-13"><a href="#cb36-13" aria-hidden="true" tabindex="-1"></a>    legend<span class="op">=</span><span class="va">False</span></span>
-<span id="cb36-14"><a href="#cb36-14" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb36-15"><a href="#cb36-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-16"><a href="#cb36-16" aria-hidden="true" tabindex="-1"></a>income_ax.set_title(<span class="st">"Median Household Income"</span>)</span>
-<span id="cb36-17"><a href="#cb36-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-18"><a href="#cb36-18" aria-hidden="true" tabindex="-1"></a>sm_income <span class="op">=</span> plt.cm.ScalarMappable(</span>
-<span id="cb36-19"><a href="#cb36-19" aria-hidden="true" tabindex="-1"></a>    cmap<span class="op">=</span><span class="st">"viridis"</span>,</span>
-<span id="cb36-20"><a href="#cb36-20" aria-hidden="true" tabindex="-1"></a>    norm<span class="op">=</span>plt.Normalize(</span>
-<span id="cb36-21"><a href="#cb36-21" aria-hidden="true" tabindex="-1"></a>        vmin<span class="op">=</span>income_geo[<span class="st">"B19013_001E"</span>].<span class="bu">min</span>(),</span>
-<span id="cb36-22"><a href="#cb36-22" aria-hidden="true" tabindex="-1"></a>        vmax<span class="op">=</span>income_geo[<span class="st">"B19013_001E"</span>].<span class="bu">max</span>()</span>
-<span id="cb36-23"><a href="#cb36-23" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb36-24"><a href="#cb36-24" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb36-25"><a href="#cb36-25" aria-hidden="true" tabindex="-1"></a>sm_income._A <span class="op">=</span> []</span>
-<span id="cb36-26"><a href="#cb36-26" aria-hidden="true" tabindex="-1"></a>cbar_income <span class="op">=</span> fig.colorbar(</span>
-<span id="cb36-27"><a href="#cb36-27" aria-hidden="true" tabindex="-1"></a>    sm_income,</span>
-<span id="cb36-28"><a href="#cb36-28" aria-hidden="true" tabindex="-1"></a>    ax<span class="op">=</span>income_ax,</span>
-<span id="cb36-29"><a href="#cb36-29" aria-hidden="true" tabindex="-1"></a>    orientation<span class="op">=</span><span class="st">"vertical"</span>,</span>
-<span id="cb36-30"><a href="#cb36-30" aria-hidden="true" tabindex="-1"></a>    fraction<span class="op">=</span><span class="fl">0.046</span>,</span>
-<span id="cb36-31"><a href="#cb36-31" aria-hidden="true" tabindex="-1"></a>    pad<span class="op">=</span><span class="fl">0.04</span></span>
-<span id="cb36-32"><a href="#cb36-32" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb36-33"><a href="#cb36-33" aria-hidden="true" tabindex="-1"></a>cbar_income.ax.yaxis.set_major_formatter(ticker.FormatStrFormatter(<span class="st">'</span><span class="sc">%d</span><span class="st">'</span>))</span>
-<span id="cb36-34"><a href="#cb36-34" aria-hidden="true" tabindex="-1"></a>cbar_income.set_label(<span class="st">"Median Household Income"</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">16</span>, <span class="dv">12</span>))</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a><span class="co"># =====================================================</span></span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Row 1, Col 1: Income</span></span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a><span class="co"># =====================================================</span></span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>income_ax <span class="op">=</span> axes[<span class="dv">0</span>, <span class="dv">0</span>]</span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a>income_geo.plot(</span>
+<span id="cb36-9"><a href="#cb36-9" aria-hidden="true" tabindex="-1"></a>    column<span class="op">=</span><span class="st">"B19013_001E"</span>,</span>
+<span id="cb36-10"><a href="#cb36-10" aria-hidden="true" tabindex="-1"></a>    cmap<span class="op">=</span><span class="st">"viridis"</span>,</span>
+<span id="cb36-11"><a href="#cb36-11" aria-hidden="true" tabindex="-1"></a>    ax<span class="op">=</span>income_ax,</span>
+<span id="cb36-12"><a href="#cb36-12" aria-hidden="true" tabindex="-1"></a>    legend<span class="op">=</span><span class="va">False</span></span>
+<span id="cb36-13"><a href="#cb36-13" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb36-14"><a href="#cb36-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-15"><a href="#cb36-15" aria-hidden="true" tabindex="-1"></a>income_ax.set_title(<span class="st">"Median Household Income"</span>)</span>
+<span id="cb36-16"><a href="#cb36-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-17"><a href="#cb36-17" aria-hidden="true" tabindex="-1"></a>sm_income <span class="op">=</span> plt.cm.ScalarMappable(</span>
+<span id="cb36-18"><a href="#cb36-18" aria-hidden="true" tabindex="-1"></a>    cmap<span class="op">=</span><span class="st">"viridis"</span>,</span>
+<span id="cb36-19"><a href="#cb36-19" aria-hidden="true" tabindex="-1"></a>    norm<span class="op">=</span>plt.Normalize(</span>
+<span id="cb36-20"><a href="#cb36-20" aria-hidden="true" tabindex="-1"></a>        vmin<span class="op">=</span>income_geo[<span class="st">"B19013_001E"</span>].<span class="bu">min</span>(),</span>
+<span id="cb36-21"><a href="#cb36-21" aria-hidden="true" tabindex="-1"></a>        vmax<span class="op">=</span>income_geo[<span class="st">"B19013_001E"</span>].<span class="bu">max</span>()</span>
+<span id="cb36-22"><a href="#cb36-22" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb36-23"><a href="#cb36-23" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb36-24"><a href="#cb36-24" aria-hidden="true" tabindex="-1"></a>sm_income._A <span class="op">=</span> []</span>
+<span id="cb36-25"><a href="#cb36-25" aria-hidden="true" tabindex="-1"></a>cbar_income <span class="op">=</span> fig.colorbar(</span>
+<span id="cb36-26"><a href="#cb36-26" aria-hidden="true" tabindex="-1"></a>    sm_income,</span>
+<span id="cb36-27"><a href="#cb36-27" aria-hidden="true" tabindex="-1"></a>    ax<span class="op">=</span>income_ax,</span>
+<span id="cb36-28"><a href="#cb36-28" aria-hidden="true" tabindex="-1"></a>    orientation<span class="op">=</span><span class="st">"vertical"</span>,</span>
+<span id="cb36-29"><a href="#cb36-29" aria-hidden="true" tabindex="-1"></a>    fraction<span class="op">=</span><span class="fl">0.046</span>,</span>
+<span id="cb36-30"><a href="#cb36-30" aria-hidden="true" tabindex="-1"></a>    pad<span class="op">=</span><span class="fl">0.04</span></span>
+<span id="cb36-31"><a href="#cb36-31" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb36-32"><a href="#cb36-32" aria-hidden="true" tabindex="-1"></a>cbar_income.ax.yaxis.set_major_formatter(ticker.FormatStrFormatter(<span class="st">'</span><span class="sc">%d</span><span class="st">'</span>))</span>
+<span id="cb36-33"><a href="#cb36-33" aria-hidden="true" tabindex="-1"></a>cbar_income.set_label(<span class="st">"Median Household Income"</span>)</span>
+<span id="cb36-34"><a href="#cb36-34" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb36-35"><a href="#cb36-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-36"><a href="#cb36-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-37"><a href="#cb36-37" aria-hidden="true" tabindex="-1"></a><span class="co"># =====================================================</span></span>
-<span id="cb36-38"><a href="#cb36-38" aria-hidden="true" tabindex="-1"></a><span class="co"># Row 1, Col 2: Transit Share</span></span>
-<span id="cb36-39"><a href="#cb36-39" aria-hidden="true" tabindex="-1"></a><span class="co"># =====================================================</span></span>
-<span id="cb36-40"><a href="#cb36-40" aria-hidden="true" tabindex="-1"></a>transit_ax <span class="op">=</span> axes[<span class="dv">0</span>, <span class="dv">1</span>]</span>
-<span id="cb36-41"><a href="#cb36-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-42"><a href="#cb36-42" aria-hidden="true" tabindex="-1"></a>transit_geo.plot(</span>
-<span id="cb36-43"><a href="#cb36-43" aria-hidden="true" tabindex="-1"></a>    column<span class="op">=</span><span class="st">"transit_share"</span>,</span>
-<span id="cb36-44"><a href="#cb36-44" aria-hidden="true" tabindex="-1"></a>    cmap<span class="op">=</span><span class="st">"Blues"</span>,</span>
-<span id="cb36-45"><a href="#cb36-45" aria-hidden="true" tabindex="-1"></a>    ax<span class="op">=</span>transit_ax,</span>
-<span id="cb36-46"><a href="#cb36-46" aria-hidden="true" tabindex="-1"></a>    legend<span class="op">=</span><span class="va">False</span></span>
-<span id="cb36-47"><a href="#cb36-47" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb36-48"><a href="#cb36-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-49"><a href="#cb36-49" aria-hidden="true" tabindex="-1"></a>transit_ax.set_title(<span class="st">"Public Transit Share"</span>)</span>
-<span id="cb36-50"><a href="#cb36-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-51"><a href="#cb36-51" aria-hidden="true" tabindex="-1"></a>sm_transit <span class="op">=</span> plt.cm.ScalarMappable(</span>
-<span id="cb36-52"><a href="#cb36-52" aria-hidden="true" tabindex="-1"></a>    cmap<span class="op">=</span><span class="st">"Blues"</span>,</span>
-<span id="cb36-53"><a href="#cb36-53" aria-hidden="true" tabindex="-1"></a>    norm<span class="op">=</span>plt.Normalize(</span>
-<span id="cb36-54"><a href="#cb36-54" aria-hidden="true" tabindex="-1"></a>        vmin<span class="op">=</span>transit_geo[<span class="st">"transit_share"</span>].<span class="bu">min</span>(),</span>
-<span id="cb36-55"><a href="#cb36-55" aria-hidden="true" tabindex="-1"></a>        vmax<span class="op">=</span>transit_geo[<span class="st">"transit_share"</span>].<span class="bu">max</span>()</span>
-<span id="cb36-56"><a href="#cb36-56" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb36-57"><a href="#cb36-57" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb36-58"><a href="#cb36-58" aria-hidden="true" tabindex="-1"></a>sm_transit._A <span class="op">=</span> []</span>
-<span id="cb36-59"><a href="#cb36-59" aria-hidden="true" tabindex="-1"></a>cbar_transit <span class="op">=</span> fig.colorbar(</span>
-<span id="cb36-60"><a href="#cb36-60" aria-hidden="true" tabindex="-1"></a>    sm_transit,</span>
-<span id="cb36-61"><a href="#cb36-61" aria-hidden="true" tabindex="-1"></a>    ax<span class="op">=</span>transit_ax,</span>
-<span id="cb36-62"><a href="#cb36-62" aria-hidden="true" tabindex="-1"></a>    orientation<span class="op">=</span><span class="st">"vertical"</span>,</span>
-<span id="cb36-63"><a href="#cb36-63" aria-hidden="true" tabindex="-1"></a>    fraction<span class="op">=</span><span class="fl">0.046</span>,</span>
-<span id="cb36-64"><a href="#cb36-64" aria-hidden="true" tabindex="-1"></a>    pad<span class="op">=</span><span class="fl">0.04</span></span>
-<span id="cb36-65"><a href="#cb36-65" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb36-66"><a href="#cb36-66" aria-hidden="true" tabindex="-1"></a>cbar_transit.ax.yaxis.set_major_formatter(ticker.FormatStrFormatter(<span class="st">'</span><span class="sc">%.2f</span><span class="st">'</span>))</span>
-<span id="cb36-67"><a href="#cb36-67" aria-hidden="true" tabindex="-1"></a>cbar_transit.set_label(<span class="st">"Transit Share"</span>)</span>
+<span id="cb36-36"><a href="#cb36-36" aria-hidden="true" tabindex="-1"></a><span class="co"># =====================================================</span></span>
+<span id="cb36-37"><a href="#cb36-37" aria-hidden="true" tabindex="-1"></a><span class="co"># Row 1, Col 2: Transit Share</span></span>
+<span id="cb36-38"><a href="#cb36-38" aria-hidden="true" tabindex="-1"></a><span class="co"># =====================================================</span></span>
+<span id="cb36-39"><a href="#cb36-39" aria-hidden="true" tabindex="-1"></a>transit_ax <span class="op">=</span> axes[<span class="dv">0</span>, <span class="dv">1</span>]</span>
+<span id="cb36-40"><a href="#cb36-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-41"><a href="#cb36-41" aria-hidden="true" tabindex="-1"></a>transit_geo.plot(</span>
+<span id="cb36-42"><a href="#cb36-42" aria-hidden="true" tabindex="-1"></a>    column<span class="op">=</span><span class="st">"transit_share"</span>,</span>
+<span id="cb36-43"><a href="#cb36-43" aria-hidden="true" tabindex="-1"></a>    cmap<span class="op">=</span><span class="st">"Blues"</span>,</span>
+<span id="cb36-44"><a href="#cb36-44" aria-hidden="true" tabindex="-1"></a>    ax<span class="op">=</span>transit_ax,</span>
+<span id="cb36-45"><a href="#cb36-45" aria-hidden="true" tabindex="-1"></a>    legend<span class="op">=</span><span class="va">False</span></span>
+<span id="cb36-46"><a href="#cb36-46" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb36-47"><a href="#cb36-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-48"><a href="#cb36-48" aria-hidden="true" tabindex="-1"></a>transit_ax.set_title(<span class="st">"Public Transit Share"</span>)</span>
+<span id="cb36-49"><a href="#cb36-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-50"><a href="#cb36-50" aria-hidden="true" tabindex="-1"></a>sm_transit <span class="op">=</span> plt.cm.ScalarMappable(</span>
+<span id="cb36-51"><a href="#cb36-51" aria-hidden="true" tabindex="-1"></a>    cmap<span class="op">=</span><span class="st">"Blues"</span>,</span>
+<span id="cb36-52"><a href="#cb36-52" aria-hidden="true" tabindex="-1"></a>    norm<span class="op">=</span>plt.Normalize(</span>
+<span id="cb36-53"><a href="#cb36-53" aria-hidden="true" tabindex="-1"></a>        vmin<span class="op">=</span>transit_geo[<span class="st">"transit_share"</span>].<span class="bu">min</span>(),</span>
+<span id="cb36-54"><a href="#cb36-54" aria-hidden="true" tabindex="-1"></a>        vmax<span class="op">=</span>transit_geo[<span class="st">"transit_share"</span>].<span class="bu">max</span>()</span>
+<span id="cb36-55"><a href="#cb36-55" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb36-56"><a href="#cb36-56" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb36-57"><a href="#cb36-57" aria-hidden="true" tabindex="-1"></a>sm_transit._A <span class="op">=</span> []</span>
+<span id="cb36-58"><a href="#cb36-58" aria-hidden="true" tabindex="-1"></a>cbar_transit <span class="op">=</span> fig.colorbar(</span>
+<span id="cb36-59"><a href="#cb36-59" aria-hidden="true" tabindex="-1"></a>    sm_transit,</span>
+<span id="cb36-60"><a href="#cb36-60" aria-hidden="true" tabindex="-1"></a>    ax<span class="op">=</span>transit_ax,</span>
+<span id="cb36-61"><a href="#cb36-61" aria-hidden="true" tabindex="-1"></a>    orientation<span class="op">=</span><span class="st">"vertical"</span>,</span>
+<span id="cb36-62"><a href="#cb36-62" aria-hidden="true" tabindex="-1"></a>    fraction<span class="op">=</span><span class="fl">0.046</span>,</span>
+<span id="cb36-63"><a href="#cb36-63" aria-hidden="true" tabindex="-1"></a>    pad<span class="op">=</span><span class="fl">0.04</span></span>
+<span id="cb36-64"><a href="#cb36-64" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb36-65"><a href="#cb36-65" aria-hidden="true" tabindex="-1"></a>cbar_transit.ax.yaxis.set_major_formatter(ticker.FormatStrFormatter(<span class="st">'</span><span class="sc">%.2f</span><span class="st">'</span>))</span>
+<span id="cb36-66"><a href="#cb36-66" aria-hidden="true" tabindex="-1"></a>cbar_transit.set_label(<span class="st">"Transit Share"</span>)</span>
+<span id="cb36-67"><a href="#cb36-67" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb36-68"><a href="#cb36-68" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-69"><a href="#cb36-69" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-70"><a href="#cb36-70" aria-hidden="true" tabindex="-1"></a><span class="co"># =====================================================</span></span>
-<span id="cb36-71"><a href="#cb36-71" aria-hidden="true" tabindex="-1"></a><span class="co"># Row 2, Col 1: Peak Headway Difference</span></span>
-<span id="cb36-72"><a href="#cb36-72" aria-hidden="true" tabindex="-1"></a><span class="co"># =====================================================</span></span>
-<span id="cb36-73"><a href="#cb36-73" aria-hidden="true" tabindex="-1"></a>peak_ax <span class="op">=</span> axes[<span class="dv">1</span>, <span class="dv">0</span>]</span>
-<span id="cb36-74"><a href="#cb36-74" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-75"><a href="#cb36-75" aria-hidden="true" tabindex="-1"></a>affected.plot(</span>
-<span id="cb36-76"><a href="#cb36-76" aria-hidden="true" tabindex="-1"></a>    column<span class="op">=</span><span class="st">"Difference in Peak headways"</span>,</span>
-<span id="cb36-77"><a href="#cb36-77" aria-hidden="true" tabindex="-1"></a>    cmap<span class="op">=</span><span class="st">"Reds"</span>,</span>
-<span id="cb36-78"><a href="#cb36-78" aria-hidden="true" tabindex="-1"></a>    ax<span class="op">=</span>peak_ax,</span>
-<span id="cb36-79"><a href="#cb36-79" aria-hidden="true" tabindex="-1"></a>    legend<span class="op">=</span><span class="va">False</span></span>
-<span id="cb36-80"><a href="#cb36-80" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb36-81"><a href="#cb36-81" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-82"><a href="#cb36-82" aria-hidden="true" tabindex="-1"></a>peak_ax.set_title(<span class="st">"Peak Headway Difference"</span>)</span>
-<span id="cb36-83"><a href="#cb36-83" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-84"><a href="#cb36-84" aria-hidden="true" tabindex="-1"></a>sm_peak <span class="op">=</span> plt.cm.ScalarMappable(</span>
-<span id="cb36-85"><a href="#cb36-85" aria-hidden="true" tabindex="-1"></a>    cmap<span class="op">=</span><span class="st">"Reds"</span>,</span>
-<span id="cb36-86"><a href="#cb36-86" aria-hidden="true" tabindex="-1"></a>    norm<span class="op">=</span>plt.Normalize(</span>
-<span id="cb36-87"><a href="#cb36-87" aria-hidden="true" tabindex="-1"></a>        vmin<span class="op">=</span>affected[<span class="st">"Difference in Peak headways"</span>].<span class="bu">min</span>(),</span>
-<span id="cb36-88"><a href="#cb36-88" aria-hidden="true" tabindex="-1"></a>        vmax<span class="op">=</span>affected[<span class="st">"Difference in Peak headways"</span>].<span class="bu">max</span>()</span>
-<span id="cb36-89"><a href="#cb36-89" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb36-90"><a href="#cb36-90" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb36-91"><a href="#cb36-91" aria-hidden="true" tabindex="-1"></a>sm_peak._A <span class="op">=</span> []</span>
-<span id="cb36-92"><a href="#cb36-92" aria-hidden="true" tabindex="-1"></a>cbar_peak <span class="op">=</span> fig.colorbar(</span>
-<span id="cb36-93"><a href="#cb36-93" aria-hidden="true" tabindex="-1"></a>    sm_peak,</span>
-<span id="cb36-94"><a href="#cb36-94" aria-hidden="true" tabindex="-1"></a>    ax<span class="op">=</span>peak_ax,</span>
-<span id="cb36-95"><a href="#cb36-95" aria-hidden="true" tabindex="-1"></a>    orientation<span class="op">=</span><span class="st">"vertical"</span>,</span>
-<span id="cb36-96"><a href="#cb36-96" aria-hidden="true" tabindex="-1"></a>    fraction<span class="op">=</span><span class="fl">0.046</span>,</span>
-<span id="cb36-97"><a href="#cb36-97" aria-hidden="true" tabindex="-1"></a>    pad<span class="op">=</span><span class="fl">0.04</span></span>
-<span id="cb36-98"><a href="#cb36-98" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb36-99"><a href="#cb36-99" aria-hidden="true" tabindex="-1"></a>cbar_peak.ax.yaxis.set_major_formatter(ticker.FormatStrFormatter(<span class="st">'</span><span class="sc">%d</span><span class="st">'</span>))</span>
-<span id="cb36-100"><a href="#cb36-100" aria-hidden="true" tabindex="-1"></a>cbar_peak.set_label(<span class="st">"Peak Difference (mins)"</span>)</span>
+<span id="cb36-69"><a href="#cb36-69" aria-hidden="true" tabindex="-1"></a><span class="co"># =====================================================</span></span>
+<span id="cb36-70"><a href="#cb36-70" aria-hidden="true" tabindex="-1"></a><span class="co"># Row 2, Col 1: Peak Headway Difference</span></span>
+<span id="cb36-71"><a href="#cb36-71" aria-hidden="true" tabindex="-1"></a><span class="co"># =====================================================</span></span>
+<span id="cb36-72"><a href="#cb36-72" aria-hidden="true" tabindex="-1"></a>peak_ax <span class="op">=</span> axes[<span class="dv">1</span>, <span class="dv">0</span>]</span>
+<span id="cb36-73"><a href="#cb36-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-74"><a href="#cb36-74" aria-hidden="true" tabindex="-1"></a>affected.plot(</span>
+<span id="cb36-75"><a href="#cb36-75" aria-hidden="true" tabindex="-1"></a>    column<span class="op">=</span><span class="st">"Difference in Peak headways"</span>,</span>
+<span id="cb36-76"><a href="#cb36-76" aria-hidden="true" tabindex="-1"></a>    cmap<span class="op">=</span><span class="st">"Reds"</span>,</span>
+<span id="cb36-77"><a href="#cb36-77" aria-hidden="true" tabindex="-1"></a>    ax<span class="op">=</span>peak_ax,</span>
+<span id="cb36-78"><a href="#cb36-78" aria-hidden="true" tabindex="-1"></a>    legend<span class="op">=</span><span class="va">False</span></span>
+<span id="cb36-79"><a href="#cb36-79" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb36-80"><a href="#cb36-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-81"><a href="#cb36-81" aria-hidden="true" tabindex="-1"></a>peak_ax.set_title(<span class="st">"Peak Headway Difference"</span>)</span>
+<span id="cb36-82"><a href="#cb36-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-83"><a href="#cb36-83" aria-hidden="true" tabindex="-1"></a>sm_peak <span class="op">=</span> plt.cm.ScalarMappable(</span>
+<span id="cb36-84"><a href="#cb36-84" aria-hidden="true" tabindex="-1"></a>    cmap<span class="op">=</span><span class="st">"Reds"</span>,</span>
+<span id="cb36-85"><a href="#cb36-85" aria-hidden="true" tabindex="-1"></a>    norm<span class="op">=</span>plt.Normalize(</span>
+<span id="cb36-86"><a href="#cb36-86" aria-hidden="true" tabindex="-1"></a>        vmin<span class="op">=</span>affected[<span class="st">"Difference in Peak headways"</span>].<span class="bu">min</span>(),</span>
+<span id="cb36-87"><a href="#cb36-87" aria-hidden="true" tabindex="-1"></a>        vmax<span class="op">=</span>affected[<span class="st">"Difference in Peak headways"</span>].<span class="bu">max</span>()</span>
+<span id="cb36-88"><a href="#cb36-88" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb36-89"><a href="#cb36-89" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb36-90"><a href="#cb36-90" aria-hidden="true" tabindex="-1"></a>sm_peak._A <span class="op">=</span> []</span>
+<span id="cb36-91"><a href="#cb36-91" aria-hidden="true" tabindex="-1"></a>cbar_peak <span class="op">=</span> fig.colorbar(</span>
+<span id="cb36-92"><a href="#cb36-92" aria-hidden="true" tabindex="-1"></a>    sm_peak,</span>
+<span id="cb36-93"><a href="#cb36-93" aria-hidden="true" tabindex="-1"></a>    ax<span class="op">=</span>peak_ax,</span>
+<span id="cb36-94"><a href="#cb36-94" aria-hidden="true" tabindex="-1"></a>    orientation<span class="op">=</span><span class="st">"vertical"</span>,</span>
+<span id="cb36-95"><a href="#cb36-95" aria-hidden="true" tabindex="-1"></a>    fraction<span class="op">=</span><span class="fl">0.046</span>,</span>
+<span id="cb36-96"><a href="#cb36-96" aria-hidden="true" tabindex="-1"></a>    pad<span class="op">=</span><span class="fl">0.04</span></span>
+<span id="cb36-97"><a href="#cb36-97" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb36-98"><a href="#cb36-98" aria-hidden="true" tabindex="-1"></a>cbar_peak.ax.yaxis.set_major_formatter(ticker.FormatStrFormatter(<span class="st">'</span><span class="sc">%d</span><span class="st">'</span>))</span>
+<span id="cb36-99"><a href="#cb36-99" aria-hidden="true" tabindex="-1"></a>cbar_peak.set_label(<span class="st">"Peak Difference (mins)"</span>)</span>
+<span id="cb36-100"><a href="#cb36-100" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb36-101"><a href="#cb36-101" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-102"><a href="#cb36-102" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-103"><a href="#cb36-103" aria-hidden="true" tabindex="-1"></a><span class="co"># =====================================================</span></span>
-<span id="cb36-104"><a href="#cb36-104" aria-hidden="true" tabindex="-1"></a><span class="co"># Row 2, Col 2: Midday Headway Difference</span></span>
-<span id="cb36-105"><a href="#cb36-105" aria-hidden="true" tabindex="-1"></a><span class="co"># =====================================================</span></span>
-<span id="cb36-106"><a href="#cb36-106" aria-hidden="true" tabindex="-1"></a>midday_ax <span class="op">=</span> axes[<span class="dv">1</span>, <span class="dv">1</span>]</span>
-<span id="cb36-107"><a href="#cb36-107" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-108"><a href="#cb36-108" aria-hidden="true" tabindex="-1"></a>affected.plot(</span>
-<span id="cb36-109"><a href="#cb36-109" aria-hidden="true" tabindex="-1"></a>    column<span class="op">=</span><span class="st">"Difference in Midday headways"</span>,</span>
-<span id="cb36-110"><a href="#cb36-110" aria-hidden="true" tabindex="-1"></a>    cmap<span class="op">=</span><span class="st">"OrRd"</span>,</span>
-<span id="cb36-111"><a href="#cb36-111" aria-hidden="true" tabindex="-1"></a>    ax<span class="op">=</span>midday_ax,</span>
-<span id="cb36-112"><a href="#cb36-112" aria-hidden="true" tabindex="-1"></a>    legend<span class="op">=</span><span class="va">False</span></span>
-<span id="cb36-113"><a href="#cb36-113" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb36-114"><a href="#cb36-114" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-115"><a href="#cb36-115" aria-hidden="true" tabindex="-1"></a>midday_ax.set_title(<span class="st">"Midday Headway Difference"</span>)</span>
-<span id="cb36-116"><a href="#cb36-116" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-117"><a href="#cb36-117" aria-hidden="true" tabindex="-1"></a>sm_mid <span class="op">=</span> plt.cm.ScalarMappable(</span>
-<span id="cb36-118"><a href="#cb36-118" aria-hidden="true" tabindex="-1"></a>    cmap<span class="op">=</span><span class="st">"OrRd"</span>,</span>
-<span id="cb36-119"><a href="#cb36-119" aria-hidden="true" tabindex="-1"></a>    norm<span class="op">=</span>plt.Normalize(</span>
-<span id="cb36-120"><a href="#cb36-120" aria-hidden="true" tabindex="-1"></a>        vmin<span class="op">=</span>affected[<span class="st">"Difference in Midday headways"</span>].<span class="bu">min</span>(),</span>
-<span id="cb36-121"><a href="#cb36-121" aria-hidden="true" tabindex="-1"></a>        vmax<span class="op">=</span>affected[<span class="st">"Difference in Midday headways"</span>].<span class="bu">max</span>()</span>
-<span id="cb36-122"><a href="#cb36-122" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb36-123"><a href="#cb36-123" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb36-124"><a href="#cb36-124" aria-hidden="true" tabindex="-1"></a>sm_mid._A <span class="op">=</span> []</span>
-<span id="cb36-125"><a href="#cb36-125" aria-hidden="true" tabindex="-1"></a>cbar_mid <span class="op">=</span> fig.colorbar(</span>
-<span id="cb36-126"><a href="#cb36-126" aria-hidden="true" tabindex="-1"></a>    sm_mid,</span>
-<span id="cb36-127"><a href="#cb36-127" aria-hidden="true" tabindex="-1"></a>    ax<span class="op">=</span>midday_ax,</span>
-<span id="cb36-128"><a href="#cb36-128" aria-hidden="true" tabindex="-1"></a>    orientation<span class="op">=</span><span class="st">"vertical"</span>,</span>
-<span id="cb36-129"><a href="#cb36-129" aria-hidden="true" tabindex="-1"></a>    fraction<span class="op">=</span><span class="fl">0.046</span>,</span>
-<span id="cb36-130"><a href="#cb36-130" aria-hidden="true" tabindex="-1"></a>    pad<span class="op">=</span><span class="fl">0.04</span></span>
-<span id="cb36-131"><a href="#cb36-131" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb36-132"><a href="#cb36-132" aria-hidden="true" tabindex="-1"></a>cbar_mid.ax.yaxis.set_major_formatter(ticker.FormatStrFormatter(<span class="st">'</span><span class="sc">%d</span><span class="st">'</span>))</span>
-<span id="cb36-133"><a href="#cb36-133" aria-hidden="true" tabindex="-1"></a>cbar_mid.set_label(<span class="st">"Midday Difference (mins)"</span>)</span>
+<span id="cb36-102"><a href="#cb36-102" aria-hidden="true" tabindex="-1"></a><span class="co"># =====================================================</span></span>
+<span id="cb36-103"><a href="#cb36-103" aria-hidden="true" tabindex="-1"></a><span class="co"># Row 2, Col 2: Midday Headway Difference</span></span>
+<span id="cb36-104"><a href="#cb36-104" aria-hidden="true" tabindex="-1"></a><span class="co"># =====================================================</span></span>
+<span id="cb36-105"><a href="#cb36-105" aria-hidden="true" tabindex="-1"></a>midday_ax <span class="op">=</span> axes[<span class="dv">1</span>, <span class="dv">1</span>]</span>
+<span id="cb36-106"><a href="#cb36-106" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-107"><a href="#cb36-107" aria-hidden="true" tabindex="-1"></a>affected.plot(</span>
+<span id="cb36-108"><a href="#cb36-108" aria-hidden="true" tabindex="-1"></a>    column<span class="op">=</span><span class="st">"Difference in Midday headways"</span>,</span>
+<span id="cb36-109"><a href="#cb36-109" aria-hidden="true" tabindex="-1"></a>    cmap<span class="op">=</span><span class="st">"OrRd"</span>,</span>
+<span id="cb36-110"><a href="#cb36-110" aria-hidden="true" tabindex="-1"></a>    ax<span class="op">=</span>midday_ax,</span>
+<span id="cb36-111"><a href="#cb36-111" aria-hidden="true" tabindex="-1"></a>    legend<span class="op">=</span><span class="va">False</span></span>
+<span id="cb36-112"><a href="#cb36-112" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb36-113"><a href="#cb36-113" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-114"><a href="#cb36-114" aria-hidden="true" tabindex="-1"></a>midday_ax.set_title(<span class="st">"Midday Headway Difference"</span>)</span>
+<span id="cb36-115"><a href="#cb36-115" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-116"><a href="#cb36-116" aria-hidden="true" tabindex="-1"></a>sm_mid <span class="op">=</span> plt.cm.ScalarMappable(</span>
+<span id="cb36-117"><a href="#cb36-117" aria-hidden="true" tabindex="-1"></a>    cmap<span class="op">=</span><span class="st">"OrRd"</span>,</span>
+<span id="cb36-118"><a href="#cb36-118" aria-hidden="true" tabindex="-1"></a>    norm<span class="op">=</span>plt.Normalize(</span>
+<span id="cb36-119"><a href="#cb36-119" aria-hidden="true" tabindex="-1"></a>        vmin<span class="op">=</span>affected[<span class="st">"Difference in Midday headways"</span>].<span class="bu">min</span>(),</span>
+<span id="cb36-120"><a href="#cb36-120" aria-hidden="true" tabindex="-1"></a>        vmax<span class="op">=</span>affected[<span class="st">"Difference in Midday headways"</span>].<span class="bu">max</span>()</span>
+<span id="cb36-121"><a href="#cb36-121" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb36-122"><a href="#cb36-122" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb36-123"><a href="#cb36-123" aria-hidden="true" tabindex="-1"></a>sm_mid._A <span class="op">=</span> []</span>
+<span id="cb36-124"><a href="#cb36-124" aria-hidden="true" tabindex="-1"></a>cbar_mid <span class="op">=</span> fig.colorbar(</span>
+<span id="cb36-125"><a href="#cb36-125" aria-hidden="true" tabindex="-1"></a>    sm_mid,</span>
+<span id="cb36-126"><a href="#cb36-126" aria-hidden="true" tabindex="-1"></a>    ax<span class="op">=</span>midday_ax,</span>
+<span id="cb36-127"><a href="#cb36-127" aria-hidden="true" tabindex="-1"></a>    orientation<span class="op">=</span><span class="st">"vertical"</span>,</span>
+<span id="cb36-128"><a href="#cb36-128" aria-hidden="true" tabindex="-1"></a>    fraction<span class="op">=</span><span class="fl">0.046</span>,</span>
+<span id="cb36-129"><a href="#cb36-129" aria-hidden="true" tabindex="-1"></a>    pad<span class="op">=</span><span class="fl">0.04</span></span>
+<span id="cb36-130"><a href="#cb36-130" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb36-131"><a href="#cb36-131" aria-hidden="true" tabindex="-1"></a>cbar_mid.ax.yaxis.set_major_formatter(ticker.FormatStrFormatter(<span class="st">'</span><span class="sc">%d</span><span class="st">'</span>))</span>
+<span id="cb36-132"><a href="#cb36-132" aria-hidden="true" tabindex="-1"></a>cbar_mid.set_label(<span class="st">"Midday Difference (mins)"</span>)</span>
+<span id="cb36-133"><a href="#cb36-133" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb36-134"><a href="#cb36-134" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-135"><a href="#cb36-135" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-136"><a href="#cb36-136" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb36-137"><a href="#cb36-137" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb36-135"><a href="#cb36-135" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb36-136"><a href="#cb36-136" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>
@@ -3141,16 +3134,15 @@ dtype: int64</code></pre>
 </section>
 <section id="calculate-the-average-income-and-percentage-of-public-transport-use-of-the-affected-tracts-vs.-the-citywide-average-income-and-percentage-of-public-transport-use." class="level4" data-number="0.3.2">
 <h4 data-number="0.3.2" class="anchored" data-anchor-id="calculate-the-average-income-and-percentage-of-public-transport-use-of-the-affected-tracts-vs.-the-citywide-average-income-and-percentage-of-public-transport-use."><span class="header-section-number">0.3.2</span> Calculate the average income and percentage of public transport use of the affected tracts vs.&nbsp;the citywide average income and percentage of public transport use.</h4>
-<div id="70a6f665-2095-45fb-bedd-0941af837405" class="cell" data-execution_count="28">
+<div id="70a6f665-2095-45fb-bedd-0941af837405" class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co">#先筛选“严重影响的 tracts”</span></span>
-<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Peak difference ≥ 5</span></span>
-<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>significant_peak <span class="op">=</span> affected[affected[<span class="st">"Difference in Peak headways"</span>] <span class="op">&gt;=</span> <span class="dv">5</span>]</span>
-<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Midday difference ≥ 10</span></span>
-<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a>significant_midday <span class="op">=</span> affected[affected[<span class="st">"Difference in Midday headways"</span>] <span class="op">&gt;=</span> <span class="dv">10</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Peak difference ≥ 5</span></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>significant_peak <span class="op">=</span> affected[affected[<span class="st">"Difference in Peak headways"</span>] <span class="op">&gt;=</span> <span class="dv">5</span>]</span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Midday difference ≥ 10</span></span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>significant_midday <span class="op">=</span> affected[affected[<span class="st">"Difference in Midday headways"</span>] <span class="op">&gt;=</span> <span class="dv">10</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 <div id="9f9a29be-189f-4990-ab68-ab8c6a94db14" class="cell" data-execution_count="29">
@@ -3416,24 +3408,22 @@ Citywide transit share: 0.22858580680494048</code></pre>
 <section id="adding-travel-time-to-the-network-and-computing-baseline-accessibility" class="level4" data-number="0.4.3">
 <h4 data-number="0.4.3" class="anchored" data-anchor-id="adding-travel-time-to-the-network-and-computing-baseline-accessibility"><span class="header-section-number">0.4.3</span> Adding Travel Time to the Network and Computing Baseline Accessibility</h4>
 <p>In this step, we enrich the street network by assigning a travel_time attribute to each edge based on segment length and assumed travel speeds. This transforms the network from a purely spatial representation into a functional model capable of supporting time-based accessibility analysis. Once travel time is incorporated, we compute baseline (before–cut) accessibility by estimating how far a traveler can reach within a given time threshold from City Hall, using the previously identified nearest network node as the origin. This baseline measure provides a reference for understanding normal travel conditions and serves as the foundation for evaluating how accessibility may change under reduced service scenarios.</p>
-<div id="d9752e37-b45b-470a-97ed-737e55f8d604" class="cell" data-execution_count="102">
+<div id="d9752e37-b45b-470a-97ed-737e55f8d604" class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 为每条边添加步行 travel_time</span></span>
-<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> u, v, k, data <span class="kw">in</span> G.edges(keys<span class="op">=</span><span class="va">True</span>, data<span class="op">=</span><span class="va">True</span>):</span>
-<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>    length <span class="op">=</span> data.get(<span class="st">"length"</span>, <span class="dv">0</span>)</span>
-<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a>    data[<span class="st">"travel_time"</span>] <span class="op">=</span> length <span class="op">/</span> <span class="fl">83.33</span>   <span class="co"># 单位：分钟</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> u, v, k, data <span class="kw">in</span> G.edges(keys<span class="op">=</span><span class="va">True</span>, data<span class="op">=</span><span class="va">True</span>):</span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>    length <span class="op">=</span> data.get(<span class="st">"length"</span>, <span class="dv">0</span>)</span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>    data[<span class="st">"travel_time"</span>] <span class="op">=</span> length <span class="op">/</span> <span class="fl">83.33</span>   <span class="co"># 单位：分钟</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<div id="99bd148d-e2ff-4374-be80-5c94f2dd1a26" class="cell" data-execution_count="103">
+<div id="99bd148d-e2ff-4374-be80-5c94f2dd1a26" class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb51"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 基于 travel_time 计算削减前的可达性（分钟）</span></span>
-<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>travel_time_before <span class="op">=</span> nx.shortest_path_length(</span>
-<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a>    G,</span>
-<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a>    source<span class="op">=</span>origin_node,</span>
-<span id="cb51-5"><a href="#cb51-5" aria-hidden="true" tabindex="-1"></a>    weight<span class="op">=</span><span class="st">"travel_time"</span></span>
-<span id="cb51-6"><a href="#cb51-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb51"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>travel_time_before <span class="op">=</span> nx.shortest_path_length(</span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>    G,</span>
+<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a>    source<span class="op">=</span>origin_node,</span>
+<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a>    weight<span class="op">=</span><span class="st">"travel_time"</span></span>
+<span id="cb51-5"><a href="#cb51-5" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 <div id="329d7564-c60f-4573-a3bb-3989f8d66401" class="cell" data-execution_count="104">
@@ -3493,17 +3483,16 @@ Citywide transit share: 0.22858580680494048</code></pre>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb53"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> affected</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<div id="4ced12fe-afa4-46bb-a501-da4996ba3f23" class="cell" data-execution_count="109">
+<div id="4ced12fe-afa4-46bb-a501-da4996ba3f23" class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb54"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 严重削减线路的条件</span></span>
-<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>severe_routes <span class="op">=</span> df[</span>
-<span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a>    (df[<span class="st">"Difference in Peak headways"</span>] <span class="op">&gt;</span> <span class="dv">5</span>) <span class="op">|</span></span>
-<span id="cb54-4"><a href="#cb54-4" aria-hidden="true" tabindex="-1"></a>    (df[<span class="st">"Difference in Midday headways"</span>] <span class="op">&gt;</span> <span class="dv">10</span>)</span>
-<span id="cb54-5"><a href="#cb54-5" aria-hidden="true" tabindex="-1"></a>]</span>
-<span id="cb54-6"><a href="#cb54-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb54-7"><a href="#cb54-7" aria-hidden="true" tabindex="-1"></a>severe_routes_list <span class="op">=</span> severe_routes[<span class="st">"Line"</span>].astype(<span class="bu">str</span>).tolist()</span>
-<span id="cb54-8"><a href="#cb54-8" aria-hidden="true" tabindex="-1"></a>severe_routes_list</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb54"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>severe_routes <span class="op">=</span> df[</span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>    (df[<span class="st">"Difference in Peak headways"</span>] <span class="op">&gt;</span> <span class="dv">5</span>) <span class="op">|</span></span>
+<span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a>    (df[<span class="st">"Difference in Midday headways"</span>] <span class="op">&gt;</span> <span class="dv">10</span>)</span>
+<span id="cb54-4"><a href="#cb54-4" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb54-5"><a href="#cb54-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb54-6"><a href="#cb54-6" aria-hidden="true" tabindex="-1"></a>severe_routes_list <span class="op">=</span> severe_routes[<span class="st">"Line"</span>].astype(<span class="bu">str</span>).tolist()</span>
+<span id="cb54-7"><a href="#cb54-7" aria-hidden="true" tabindex="-1"></a>severe_routes_list</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="109">
 <pre><code>['53',
@@ -3534,67 +3523,59 @@ Citywide transit share: 0.22858580680494048</code></pre>
  '53']</code></pre>
 </div>
 </div>
-<div id="f827fd26-8b2e-4830-a8e8-f32ad7b3079f" class="cell" data-execution_count="110">
+<div id="f827fd26-8b2e-4830-a8e8-f32ad7b3079f" class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb56"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 获得削减线路对应的几何（线路路径）</span></span>
-<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>severe_routes_gdf <span class="op">=</span> severe_routes[[<span class="st">"Line"</span>, <span class="st">"geometry"</span>]].copy()</span>
-<span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a>severe_routes_gdf <span class="op">=</span> gpd.GeoDataFrame(severe_routes_gdf, geometry<span class="op">=</span><span class="st">"geometry"</span>, crs<span class="op">=</span><span class="st">"EPSG:2272"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb56"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>severe_routes_gdf <span class="op">=</span> severe_routes[[<span class="st">"Line"</span>, <span class="st">"geometry"</span>]].copy()</span>
+<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>severe_routes_gdf <span class="op">=</span> gpd.GeoDataFrame(severe_routes_gdf, geometry<span class="op">=</span><span class="st">"geometry"</span>, crs<span class="op">=</span><span class="st">"EPSG:2272"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<div id="cfd9111f-0b9b-4c43-b834-307dd3390327" class="cell" data-execution_count="111">
+<div id="cfd9111f-0b9b-4c43-b834-307dd3390327" class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb57"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="co">#把公交线路 geometry 转为 WGS84（与 OSM 匹配）</span></span>
-<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a>severe_routes_gdf <span class="op">=</span> severe_routes_gdf.to_crs(epsg<span class="op">=</span><span class="dv">4326</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb57"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a>severe_routes_gdf <span class="op">=</span> severe_routes_gdf.to_crs(epsg<span class="op">=</span><span class="dv">4326</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<div id="70992c43-68b7-4585-97bd-8db1793dc083" class="cell" data-execution_count="112">
+<div id="70992c43-68b7-4585-97bd-8db1793dc083" class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb58"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 构建 OSM 点表（节点 → coordinate）</span></span>
-<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a>nodes, edges <span class="op">=</span> ox.graph_to_gdfs(G, nodes<span class="op">=</span><span class="va">True</span>, edges<span class="op">=</span><span class="va">True</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb58"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>nodes, edges <span class="op">=</span> ox.graph_to_gdfs(G, nodes<span class="op">=</span><span class="va">True</span>, edges<span class="op">=</span><span class="va">True</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<div id="3a1f64de-7f76-461a-929a-314d7ec619fa" class="cell" data-execution_count="115">
+<div id="3a1f64de-7f76-461a-929a-314d7ec619fa" class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb59"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 为每条削减线路找到 200–300 米范围内的节点（受影响区域）</span></span>
-<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 选一个 buffer（模拟“线路影响范围”）</span></span>
-<span id="cb59-3"><a href="#cb59-3" aria-hidden="true" tabindex="-1"></a>buffer_dist <span class="op">=</span> <span class="dv">300</span>  <span class="co"># meters</span></span>
-<span id="cb59-4"><a href="#cb59-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb59-5"><a href="#cb59-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 创建 buffered 区域</span></span>
-<span id="cb59-6"><a href="#cb59-6" aria-hidden="true" tabindex="-1"></a>severe_routes_proj <span class="op">=</span> severe_routes_gdf.to_crs(epsg<span class="op">=</span><span class="dv">3857</span>)</span>
-<span id="cb59-7"><a href="#cb59-7" aria-hidden="true" tabindex="-1"></a>severe_buffers <span class="op">=</span> severe_routes_proj.<span class="bu">buffer</span>(buffer_dist)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb59"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a>buffer_dist <span class="op">=</span> <span class="dv">300</span>  <span class="co"># meters</span></span>
+<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb59-3"><a href="#cb59-3" aria-hidden="true" tabindex="-1"></a>severe_routes_proj <span class="op">=</span> severe_routes_gdf.to_crs(epsg<span class="op">=</span><span class="dv">3857</span>)</span>
+<span id="cb59-4"><a href="#cb59-4" aria-hidden="true" tabindex="-1"></a>severe_buffers <span class="op">=</span> severe_routes_proj.<span class="bu">buffer</span>(buffer_dist)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<div id="9e500c86-7a82-4e95-bd68-e74c0af58fc1" class="cell" data-execution_count="117">
+<div id="9e500c86-7a82-4e95-bd68-e74c0af58fc1" class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb60"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 然后我们检查哪些节点落在这些 buffer 中：</span></span>
-<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a>nodes_proj <span class="op">=</span> nodes.to_crs(epsg<span class="op">=</span><span class="dv">3857</span>)</span>
-<span id="cb60-3"><a href="#cb60-3" aria-hidden="true" tabindex="-1"></a>nodes_in_buffer <span class="op">=</span> nodes_proj[nodes_proj.within(severe_buffers.union_all())]</span>
-<span id="cb60-4"><a href="#cb60-4" aria-hidden="true" tabindex="-1"></a>affected_node_ids <span class="op">=</span> nodes_in_buffer.index.tolist()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb60"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>nodes_proj <span class="op">=</span> nodes.to_crs(epsg<span class="op">=</span><span class="dv">3857</span>)</span>
+<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a>nodes_in_buffer <span class="op">=</span> nodes_proj[nodes_proj.within(severe_buffers.union_all())]</span>
+<span id="cb60-3"><a href="#cb60-3" aria-hidden="true" tabindex="-1"></a>affected_node_ids <span class="op">=</span> nodes_in_buffer.index.tolist()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 </section>
 <section id="assigning-post-cut-penalty-values-to-affected-network-nodes" class="level4" data-number="0.4.5">
 <h4 data-number="0.4.5" class="anchored" data-anchor-id="assigning-post-cut-penalty-values-to-affected-network-nodes"><span class="header-section-number">0.4.5</span> Assigning Post-Cut Penalty Values to Affected Network Nodes</h4>
 <p>After establishing penalty values based on headway increases, we assign these penalties to the nodes and edges of the network that fall within the service areas of the most affected routes. This step ensures that the reduced transit frequency is reflected directly in the network’s travel cost structure. Nodes associated with routes that experienced larger headway increases receive proportionally higher penalties, thereby simulating the added waiting time and reduced service reliability that riders would face under the proposed cuts. Incorporating these penalties into the network allows the model to more accurately represent post-cut travel conditions and provides the necessary basis for evaluating how accessibility changes when service reductions are accounted for.</p>
-<div id="870b08d5-7838-496a-a58a-2bd3d1b5ab51" class="cell" data-execution_count="152">
+<div id="870b08d5-7838-496a-a58a-2bd3d1b5ab51" class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb61"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 假设 penalty 设为 8 分钟（可根据需要调整）因为最多调整5-10分钟，所以设为8分钟比较合理</span></span>
-<span id="cb61-2"><a href="#cb61-2" aria-hidden="true" tabindex="-1"></a>penalty_minutes <span class="op">=</span> <span class="dv">8</span></span>
-<span id="cb61-3"><a href="#cb61-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb61-4"><a href="#cb61-4" aria-hidden="true" tabindex="-1"></a>travel_time_after <span class="op">=</span> travel_time_before.copy()</span>
-<span id="cb61-5"><a href="#cb61-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb61-6"><a href="#cb61-6" aria-hidden="true" tabindex="-1"></a>travel_time_after.loc[affected_node_ids, <span class="st">"time_after"</span>] <span class="op">=</span> (</span>
-<span id="cb61-7"><a href="#cb61-7" aria-hidden="true" tabindex="-1"></a>    travel_time_after.loc[affected_node_ids, <span class="st">"time_before"</span>] <span class="op">+</span> penalty_minutes</span>
-<span id="cb61-8"><a href="#cb61-8" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb61-9"><a href="#cb61-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb61-10"><a href="#cb61-10" aria-hidden="true" tabindex="-1"></a>travel_time_after[<span class="st">"time_after"</span>] <span class="op">=</span> travel_time_after[<span class="st">"time_after"</span>].fillna(travel_time_after[<span class="st">"time_before"</span>])</span>
-<span id="cb61-11"><a href="#cb61-11" aria-hidden="true" tabindex="-1"></a>travel_time_after.head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb61"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a>penalty_minutes <span class="op">=</span> <span class="dv">8</span></span>
+<span id="cb61-2"><a href="#cb61-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb61-3"><a href="#cb61-3" aria-hidden="true" tabindex="-1"></a>travel_time_after <span class="op">=</span> travel_time_before.copy()</span>
+<span id="cb61-4"><a href="#cb61-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb61-5"><a href="#cb61-5" aria-hidden="true" tabindex="-1"></a>travel_time_after.loc[affected_node_ids, <span class="st">"time_after"</span>] <span class="op">=</span> (</span>
+<span id="cb61-6"><a href="#cb61-6" aria-hidden="true" tabindex="-1"></a>    travel_time_after.loc[affected_node_ids, <span class="st">"time_before"</span>] <span class="op">+</span> penalty_minutes</span>
+<span id="cb61-7"><a href="#cb61-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb61-8"><a href="#cb61-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb61-9"><a href="#cb61-9" aria-hidden="true" tabindex="-1"></a>travel_time_after[<span class="st">"time_after"</span>] <span class="op">=</span> travel_time_after[<span class="st">"time_after"</span>].fillna(travel_time_after[<span class="st">"time_before"</span>])</span>
+<span id="cb61-10"><a href="#cb61-10" aria-hidden="true" tabindex="-1"></a>travel_time_after.head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="152">
 <div>
@@ -3644,13 +3625,12 @@ Citywide transit share: 0.22858580680494048</code></pre>
 <section id="calculating-changes-in-accessibility-delta-accessibility" class="level4" data-number="0.4.6">
 <h4 data-number="0.4.6" class="anchored" data-anchor-id="calculating-changes-in-accessibility-delta-accessibility"><span class="header-section-number">0.4.6</span> Calculating Changes in Accessibility (Delta Accessibility)</h4>
 <p>With both the baseline and post-cut travel_time surfaces computed, we then calculate the change in accessibility, or delta accessibility, for each census tract. This involves comparing the number of network nodes reachable within a fixed travel-time threshold before and after penalties are applied. The resulting differences indicate how much accessibility is gained or lost due to the service reductions. Tracts with large negative deltas represent areas where mobility has been meaningfully diminished, while smaller or negligible changes suggest more resilient parts of the system. This comparison provides a direct measure of the spatial impact of service cuts and highlights which communities experience the most substantial decline in reachability under the reduced-service scenario.</p>
-<div id="64b3554b-e966-4228-b9f4-ff20f632f759" class="cell" data-execution_count="153">
+<div id="64b3554b-e966-4228-b9f4-ff20f632f759" class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb62"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 6: 计算可达性变化（delta）</span></span>
-<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a>travel_time_after[<span class="st">"delta"</span>] <span class="op">=</span> travel_time_after[<span class="st">"time_after"</span>] <span class="op">-</span> travel_time_after[<span class="st">"time_before"</span>]</span>
-<span id="cb62-3"><a href="#cb62-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb62-4"><a href="#cb62-4" aria-hidden="true" tabindex="-1"></a>travel_time_after.head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb62"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a>travel_time_after[<span class="st">"delta"</span>] <span class="op">=</span> travel_time_after[<span class="st">"time_after"</span>] <span class="op">-</span> travel_time_after[<span class="st">"time_before"</span>]</span>
+<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb62-3"><a href="#cb62-3" aria-hidden="true" tabindex="-1"></a>travel_time_after.head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="153">
 <div>
@@ -3860,7 +3840,7 @@ Citywide transit share: 0.22858580680494048</code></pre>
 <span id="cb64-3"><a href="#cb64-3" aria-hidden="true" tabindex="-1"></a>nodes_wgs <span class="op">=</span> nodes_with_delta.to_crs(epsg<span class="op">=</span><span class="dv">4326</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<div id="e47b2120-d268-497e-bda3-fa28bcee362a" class="cell" data-execution_count="167">
+<div id="e47b2120-d268-497e-bda3-fa28bcee362a" class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb65"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -3868,61 +3848,53 @@ Citywide transit share: 0.22858580680494048</code></pre>
 <span id="cb65-3"><a href="#cb65-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> contextily <span class="im">as</span> cx</span>
 <span id="cb65-4"><a href="#cb65-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb65-5"><a href="#cb65-5" aria-hidden="true" tabindex="-1"></a><span class="co"># ------------------------------</span></span>
-<span id="cb65-6"><a href="#cb65-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 红橙 colormap</span></span>
-<span id="cb65-7"><a href="#cb65-7" aria-hidden="true" tabindex="-1"></a><span class="co"># ------------------------------</span></span>
-<span id="cb65-8"><a href="#cb65-8" aria-hidden="true" tabindex="-1"></a>red_orange <span class="op">=</span> [</span>
-<span id="cb65-9"><a href="#cb65-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">"#fcbba1"</span>,</span>
-<span id="cb65-10"><a href="#cb65-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">"#cb181d"</span>,</span>
-<span id="cb65-11"><a href="#cb65-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">"#99000d"</span></span>
-<span id="cb65-12"><a href="#cb65-12" aria-hidden="true" tabindex="-1"></a>]</span>
-<span id="cb65-13"><a href="#cb65-13" aria-hidden="true" tabindex="-1"></a>red_orange_cmap <span class="op">=</span> mcolors.LinearSegmentedColormap.from_list(</span>
-<span id="cb65-14"><a href="#cb65-14" aria-hidden="true" tabindex="-1"></a>    <span class="st">"redorange"</span>, red_orange</span>
-<span id="cb65-15"><a href="#cb65-15" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb65-16"><a href="#cb65-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-17"><a href="#cb65-17" aria-hidden="true" tabindex="-1"></a><span class="co"># ------------------------------</span></span>
-<span id="cb65-18"><a href="#cb65-18" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. 转换为 Web Mercator投影 (contextily要求3857)</span></span>
-<span id="cb65-19"><a href="#cb65-19" aria-hidden="true" tabindex="-1"></a><span class="co"># ------------------------------</span></span>
-<span id="cb65-20"><a href="#cb65-20" aria-hidden="true" tabindex="-1"></a>nodes_3857 <span class="op">=</span> nodes_plot.to_crs(epsg<span class="op">=</span><span class="dv">3857</span>)</span>
-<span id="cb65-21"><a href="#cb65-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-22"><a href="#cb65-22" aria-hidden="true" tabindex="-1"></a><span class="co"># ------------------------------</span></span>
-<span id="cb65-23"><a href="#cb65-23" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. 绘图</span></span>
-<span id="cb65-24"><a href="#cb65-24" aria-hidden="true" tabindex="-1"></a><span class="co"># ------------------------------</span></span>
-<span id="cb65-25"><a href="#cb65-25" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">5</span>, <span class="dv">5</span>))</span>
-<span id="cb65-26"><a href="#cb65-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-27"><a href="#cb65-27" aria-hidden="true" tabindex="-1"></a>nodes_3857.plot(</span>
-<span id="cb65-28"><a href="#cb65-28" aria-hidden="true" tabindex="-1"></a>    ax<span class="op">=</span>ax,</span>
-<span id="cb65-29"><a href="#cb65-29" aria-hidden="true" tabindex="-1"></a>    column<span class="op">=</span><span class="st">"delta"</span>,</span>
-<span id="cb65-30"><a href="#cb65-30" aria-hidden="true" tabindex="-1"></a>    cmap<span class="op">=</span>red_orange_cmap,</span>
-<span id="cb65-31"><a href="#cb65-31" aria-hidden="true" tabindex="-1"></a>    markersize<span class="op">=</span><span class="dv">2</span>,</span>
-<span id="cb65-32"><a href="#cb65-32" aria-hidden="true" tabindex="-1"></a>    edgecolor<span class="op">=</span><span class="st">"none"</span>,</span>
-<span id="cb65-33"><a href="#cb65-33" aria-hidden="true" tabindex="-1"></a>    alpha<span class="op">=</span><span class="fl">0.85</span>,</span>
-<span id="cb65-34"><a href="#cb65-34" aria-hidden="true" tabindex="-1"></a>    legend<span class="op">=</span><span class="va">True</span>,</span>
-<span id="cb65-35"><a href="#cb65-35" aria-hidden="true" tabindex="-1"></a>    legend_kwds<span class="op">=</span>{</span>
-<span id="cb65-36"><a href="#cb65-36" aria-hidden="true" tabindex="-1"></a>        <span class="st">"label"</span>: <span class="st">"Change in Accessibility (minutes)"</span>,</span>
-<span id="cb65-37"><a href="#cb65-37" aria-hidden="true" tabindex="-1"></a>        <span class="st">"orientation"</span>: <span class="st">"vertical"</span>,</span>
-<span id="cb65-38"><a href="#cb65-38" aria-hidden="true" tabindex="-1"></a>        <span class="st">"shrink"</span>: <span class="fl">0.7</span>,</span>
-<span id="cb65-39"><a href="#cb65-39" aria-hidden="true" tabindex="-1"></a>    },</span>
-<span id="cb65-40"><a href="#cb65-40" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb65-41"><a href="#cb65-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-42"><a href="#cb65-42" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. 添加底图（Carto Light）</span></span>
-<span id="cb65-43"><a href="#cb65-43" aria-hidden="true" tabindex="-1"></a>cx.add_basemap(</span>
-<span id="cb65-44"><a href="#cb65-44" aria-hidden="true" tabindex="-1"></a>    ax,</span>
-<span id="cb65-45"><a href="#cb65-45" aria-hidden="true" tabindex="-1"></a>    source<span class="op">=</span>cx.providers.CartoDB.Positron,   <span class="co"># 很干净的浅灰底图</span></span>
-<span id="cb65-46"><a href="#cb65-46" aria-hidden="true" tabindex="-1"></a>    zoom<span class="op">=</span><span class="dv">12</span>,</span>
-<span id="cb65-47"><a href="#cb65-47" aria-hidden="true" tabindex="-1"></a>    alpha<span class="op">=</span><span class="fl">0.9</span></span>
+<span id="cb65-6"><a href="#cb65-6" aria-hidden="true" tabindex="-1"></a>red_orange <span class="op">=</span> [</span>
+<span id="cb65-7"><a href="#cb65-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"#fcbba1"</span>,</span>
+<span id="cb65-8"><a href="#cb65-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"#cb181d"</span>,</span>
+<span id="cb65-9"><a href="#cb65-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">"#99000d"</span></span>
+<span id="cb65-10"><a href="#cb65-10" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb65-11"><a href="#cb65-11" aria-hidden="true" tabindex="-1"></a>red_orange_cmap <span class="op">=</span> mcolors.LinearSegmentedColormap.from_list(</span>
+<span id="cb65-12"><a href="#cb65-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">"redorange"</span>, red_orange</span>
+<span id="cb65-13"><a href="#cb65-13" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb65-14"><a href="#cb65-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-15"><a href="#cb65-15" aria-hidden="true" tabindex="-1"></a><span class="co"># ------------------------------</span></span>
+<span id="cb65-16"><a href="#cb65-16" aria-hidden="true" tabindex="-1"></a>nodes_3857 <span class="op">=</span> nodes_plot.to_crs(epsg<span class="op">=</span><span class="dv">3857</span>)</span>
+<span id="cb65-17"><a href="#cb65-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-18"><a href="#cb65-18" aria-hidden="true" tabindex="-1"></a><span class="co"># ------------------------------</span></span>
+<span id="cb65-19"><a href="#cb65-19" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">5</span>, <span class="dv">5</span>))</span>
+<span id="cb65-20"><a href="#cb65-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-21"><a href="#cb65-21" aria-hidden="true" tabindex="-1"></a>nodes_3857.plot(</span>
+<span id="cb65-22"><a href="#cb65-22" aria-hidden="true" tabindex="-1"></a>    ax<span class="op">=</span>ax,</span>
+<span id="cb65-23"><a href="#cb65-23" aria-hidden="true" tabindex="-1"></a>    column<span class="op">=</span><span class="st">"delta"</span>,</span>
+<span id="cb65-24"><a href="#cb65-24" aria-hidden="true" tabindex="-1"></a>    cmap<span class="op">=</span>red_orange_cmap,</span>
+<span id="cb65-25"><a href="#cb65-25" aria-hidden="true" tabindex="-1"></a>    markersize<span class="op">=</span><span class="dv">2</span>,</span>
+<span id="cb65-26"><a href="#cb65-26" aria-hidden="true" tabindex="-1"></a>    edgecolor<span class="op">=</span><span class="st">"none"</span>,</span>
+<span id="cb65-27"><a href="#cb65-27" aria-hidden="true" tabindex="-1"></a>    alpha<span class="op">=</span><span class="fl">0.85</span>,</span>
+<span id="cb65-28"><a href="#cb65-28" aria-hidden="true" tabindex="-1"></a>    legend<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb65-29"><a href="#cb65-29" aria-hidden="true" tabindex="-1"></a>    legend_kwds<span class="op">=</span>{</span>
+<span id="cb65-30"><a href="#cb65-30" aria-hidden="true" tabindex="-1"></a>        <span class="st">"label"</span>: <span class="st">"Change in Accessibility (minutes)"</span>,</span>
+<span id="cb65-31"><a href="#cb65-31" aria-hidden="true" tabindex="-1"></a>        <span class="st">"orientation"</span>: <span class="st">"vertical"</span>,</span>
+<span id="cb65-32"><a href="#cb65-32" aria-hidden="true" tabindex="-1"></a>        <span class="st">"shrink"</span>: <span class="fl">0.7</span>,</span>
+<span id="cb65-33"><a href="#cb65-33" aria-hidden="true" tabindex="-1"></a>    },</span>
+<span id="cb65-34"><a href="#cb65-34" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb65-35"><a href="#cb65-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-36"><a href="#cb65-36" aria-hidden="true" tabindex="-1"></a>cx.add_basemap(</span>
+<span id="cb65-37"><a href="#cb65-37" aria-hidden="true" tabindex="-1"></a>    ax,</span>
+<span id="cb65-38"><a href="#cb65-38" aria-hidden="true" tabindex="-1"></a>    source<span class="op">=</span>cx.providers.CartoDB.Positron,   <span class="co"># 很干净的浅灰底图</span></span>
+<span id="cb65-39"><a href="#cb65-39" aria-hidden="true" tabindex="-1"></a>    zoom<span class="op">=</span><span class="dv">12</span>,</span>
+<span id="cb65-40"><a href="#cb65-40" aria-hidden="true" tabindex="-1"></a>    alpha<span class="op">=</span><span class="fl">0.9</span></span>
+<span id="cb65-41"><a href="#cb65-41" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb65-42"><a href="#cb65-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-43"><a href="#cb65-43" aria-hidden="true" tabindex="-1"></a>ax.set_title(</span>
+<span id="cb65-44"><a href="#cb65-44" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Accessibility Change After Service Reduction"</span>,</span>
+<span id="cb65-45"><a href="#cb65-45" aria-hidden="true" tabindex="-1"></a>    fontsize<span class="op">=</span><span class="dv">10</span>,</span>
+<span id="cb65-46"><a href="#cb65-46" aria-hidden="true" tabindex="-1"></a>    fontweight<span class="op">=</span><span class="st">"bold"</span>,</span>
+<span id="cb65-47"><a href="#cb65-47" aria-hidden="true" tabindex="-1"></a>    color<span class="op">=</span><span class="st">"black"</span></span>
 <span id="cb65-48"><a href="#cb65-48" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb65-49"><a href="#cb65-49" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-50"><a href="#cb65-50" aria-hidden="true" tabindex="-1"></a><span class="co"># 4. 美化</span></span>
-<span id="cb65-51"><a href="#cb65-51" aria-hidden="true" tabindex="-1"></a>ax.set_title(</span>
-<span id="cb65-52"><a href="#cb65-52" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Accessibility Change After Service Reduction"</span>,</span>
-<span id="cb65-53"><a href="#cb65-53" aria-hidden="true" tabindex="-1"></a>    fontsize<span class="op">=</span><span class="dv">10</span>,</span>
-<span id="cb65-54"><a href="#cb65-54" aria-hidden="true" tabindex="-1"></a>    fontweight<span class="op">=</span><span class="st">"bold"</span>,</span>
-<span id="cb65-55"><a href="#cb65-55" aria-hidden="true" tabindex="-1"></a>    color<span class="op">=</span><span class="st">"black"</span></span>
-<span id="cb65-56"><a href="#cb65-56" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb65-57"><a href="#cb65-57" aria-hidden="true" tabindex="-1"></a>ax.set_axis_off()</span>
-<span id="cb65-58"><a href="#cb65-58" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-59"><a href="#cb65-59" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb65-60"><a href="#cb65-60" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb65-49"><a href="#cb65-49" aria-hidden="true" tabindex="-1"></a>ax.set_axis_off()</span>
+<span id="cb65-50"><a href="#cb65-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-51"><a href="#cb65-51" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb65-52"><a href="#cb65-52" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>
