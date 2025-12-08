@@ -221,16 +221,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <section id="comparison-of-gtf-data-before-and-after-reduction" class="level4" data-number="0.2.1">
 <h4 data-number="0.2.1" class="anchored" data-anchor-id="comparison-of-gtf-data-before-and-after-reduction"><span class="header-section-number">0.2.1</span> Comparison of GTF data before and after reduction</h4>
-<div id="65be3106-6d57-4718-b318-516ab139682d" class="cell" data-execution_count="2">
+<div id="65be3106-6d57-4718-b318-516ab139682d" class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 加载 GTF data (after)</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>trip_after<span class="op">=</span>pd.read_csv(<span class="st">"../Python_FinalProject/Dataset/gtfs_public_after/google_bus_after/trips.txt"</span>)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>routes_after<span class="op">=</span>pd.read_csv(<span class="st">"../Python_FinalProject/Dataset/gtfs_public_after/google_bus_after/routes.txt"</span>)</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>stops_after<span class="op">=</span>pd.read_csv(<span class="st">"../Python_FinalProject/Dataset/gtfs_public_after/google_bus_after/stops.txt"</span>)</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>shapes_after<span class="op">=</span>pd.read_csv(<span class="st">"../Python_FinalProject/Dataset/gtfs_public_after/google_bus_after/shapes.txt"</span>)</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># stop time是记录行程时间的，比较重要</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>stop_times_after<span class="op">=</span>pd.read_csv(<span class="st">"../Python_FinalProject/Dataset/gtfs_public_after/google_bus_after/stop_times.txt"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>trip_after<span class="op">=</span>pd.read_csv(<span class="st">"../Python_FinalProject/Dataset/gtfs_public_after/google_bus_after/trips.txt"</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>routes_after<span class="op">=</span>pd.read_csv(<span class="st">"../Python_FinalProject/Dataset/gtfs_public_after/google_bus_after/routes.txt"</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>stops_after<span class="op">=</span>pd.read_csv(<span class="st">"../Python_FinalProject/Dataset/gtfs_public_after/google_bus_after/stops.txt"</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>shapes_after<span class="op">=</span>pd.read_csv(<span class="st">"../Python_FinalProject/Dataset/gtfs_public_after/google_bus_after/shapes.txt"</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>stop_times_after<span class="op">=</span>pd.read_csv(<span class="st">"../Python_FinalProject/Dataset/gtfs_public_after/google_bus_after/stop_times.txt"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 <div id="6d1e9315-c4dd-42db-9847-6dfd544e996c" class="cell" data-execution_count="3">
@@ -330,16 +328,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div id="4b4db3b5-515d-457b-bf91-52d99a679847" class="cell" data-execution_count="74">
+<div id="4b4db3b5-515d-457b-bf91-52d99a679847" class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 加载 GTF data (before)</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>trip_before<span class="op">=</span>pd.read_csv(<span class="st">"../Python_FinalProject/Dataset/gtfs_public_before/google_bus/trips.txt"</span>)</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>routes_before<span class="op">=</span>pd.read_csv(<span class="st">"../Python_FinalProject/Dataset/gtfs_public_before/google_bus/routes.txt"</span>)</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>stops_before<span class="op">=</span>pd.read_csv(<span class="st">"../Python_FinalProject/Dataset/gtfs_public_before/google_bus/stops.txt"</span>)</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>shapes_before<span class="op">=</span>pd.read_csv(<span class="st">"../Python_FinalProject/Dataset/gtfs_public_before/google_bus/shapes.txt"</span>)</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co"># stop time是记录行程时间的，比较重要</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>stop_times_before<span class="op">=</span>pd.read_csv(<span class="st">"../Python_FinalProject/Dataset/gtfs_public_before/google_bus/stop_times.txt"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>trip_before<span class="op">=</span>pd.read_csv(<span class="st">"../Python_FinalProject/Dataset/gtfs_public_before/google_bus/trips.txt"</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>routes_before<span class="op">=</span>pd.read_csv(<span class="st">"../Python_FinalProject/Dataset/gtfs_public_before/google_bus/routes.txt"</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>stops_before<span class="op">=</span>pd.read_csv(<span class="st">"../Python_FinalProject/Dataset/gtfs_public_before/google_bus/stops.txt"</span>)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>shapes_before<span class="op">=</span>pd.read_csv(<span class="st">"../Python_FinalProject/Dataset/gtfs_public_before/google_bus/shapes.txt"</span>)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>stop_times_before<span class="op">=</span>pd.read_csv(<span class="st">"../Python_FinalProject/Dataset/gtfs_public_before/google_bus/stop_times.txt"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 <p>Top 10 &amp; Bottom 10 Bus Trips per Route:</p>
@@ -390,7 +386,7 @@ MANNLP    10
 dtype: int64</code></pre>
 </div>
 </div>
-<div id="b96910cf-38ba-41aa-80fd-43e3b7c67ea0" class="cell" data-execution_count="89">
+<div id="b96910cf-38ba-41aa-80fd-43e3b7c67ea0" class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>sns.<span class="bu">set</span>(style<span class="op">=</span><span class="st">"whitegrid"</span>, font_scale<span class="op">=</span><span class="fl">1.2</span>)</span>
@@ -399,26 +395,23 @@ dtype: int64</code></pre>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">14</span>,<span class="dv">6</span>))</span>
 <span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 自定义颜色</span></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>color_top <span class="op">=</span> <span class="st">"#A7C7E7"</span>  <span class="co"># 柔和淡蓝</span></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>color_bottom <span class="op">=</span> <span class="st">"#F4A7A1"</span>  <span class="co"># 柔和淡红</span></span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="co"># --- 左侧 Top 10 ---</span></span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>].bar(top10_trips.index.astype(<span class="bu">str</span>), top10_trips.values, color<span class="op">=</span>color_top)</span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>].set_title(<span class="st">"Top 10 Bus Routes by Number of Trips"</span>)</span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>].set_xlabel(<span class="st">"Route ID"</span>)</span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>].set_ylabel(<span class="st">"Trip Count"</span>)</span>
-<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>].tick_params(axis<span class="op">=</span><span class="st">'x'</span>, rotation<span class="op">=</span><span class="dv">45</span>)</span>
-<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a><span class="co"># --- 右侧 Bottom 10 ---</span></span>
-<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>].bar(bottom10_trips.index.astype(<span class="bu">str</span>), bottom10_trips.values, color<span class="op">=</span>color_bottom)</span>
-<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>].set_title(<span class="st">"Bottom 10 Bus Routes by Number of Trips"</span>)</span>
-<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>].set_xlabel(<span class="st">"Route ID"</span>)</span>
-<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>].set_ylabel(<span class="st">"Trip Count"</span>)</span>
-<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>].tick_params(axis<span class="op">=</span><span class="st">'x'</span>, rotation<span class="op">=</span><span class="dv">45</span>)</span>
-<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>color_top <span class="op">=</span> <span class="st">"#A7C7E7"</span>  </span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>color_bottom <span class="op">=</span> <span class="st">"#F4A7A1"</span>  </span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>].bar(top10_trips.index.astype(<span class="bu">str</span>), top10_trips.values, color<span class="op">=</span>color_top)</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>].set_title(<span class="st">"Top 10 Bus Routes by Number of Trips"</span>)</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>].set_xlabel(<span class="st">"Route ID"</span>)</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>].set_ylabel(<span class="st">"Trip Count"</span>)</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>].tick_params(axis<span class="op">=</span><span class="st">'x'</span>, rotation<span class="op">=</span><span class="dv">45</span>)</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>].bar(bottom10_trips.index.astype(<span class="bu">str</span>), bottom10_trips.values, color<span class="op">=</span>color_bottom)</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>].set_title(<span class="st">"Bottom 10 Bus Routes by Number of Trips"</span>)</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>].set_xlabel(<span class="st">"Route ID"</span>)</span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>].set_ylabel(<span class="st">"Trip Count"</span>)</span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>].tick_params(axis<span class="op">=</span><span class="st">'x'</span>, rotation<span class="op">=</span><span class="dv">45</span>)</span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>
@@ -433,12 +426,11 @@ dtype: int64</code></pre>
 <section id="service-reduction-data-analysis" class="level4" data-number="0.2.2">
 <h4 data-number="0.2.2" class="anchored" data-anchor-id="service-reduction-data-analysis"><span class="header-section-number">0.2.2</span> Service reduction data analysis</h4>
 <p>For the service reduction analysis, we rely on the SEPTA_reschedule dataset obtained directly from SEPTA’s official website. Our primary focus is on changes in headways, as this metric most directly reflects the practical impact of reduced service frequency on riders. Other forms of service modification—such as the complete elimination of specific bus routes—are not included in the scope of this study. Following the proposed service cuts, several routes exhibit noticeably longer headways during both peak periods and midday hours. To understand the spatial implications of these changes, we examine which census tracts are served by routes that experience substantial increases in headways across the two time periods. Census tracts covered by routes with the most significant headway increases are considered to be among the areas most affected by the service reductions.</p>
-<div id="4f937cbe-1239-49d3-87ef-9dc9bb2daadc" class="cell" data-execution_count="4">
+<div id="4f937cbe-1239-49d3-87ef-9dc9bb2daadc" class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 加载消减服务数据</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>speta_reschedule<span class="op">=</span>pd.read_csv(<span class="st">"../Python_FinalProject/Dataset/Septa_reschedule.csv"</span>)</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>speta_redchedule_geo<span class="op">=</span>gpd.read_file(<span class="st">"../Python_FinalProject/Dataset/SEPTA.gpkg"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>speta_reschedule<span class="op">=</span>pd.read_csv(<span class="st">"../Python_FinalProject/Dataset/Septa_reschedule.csv"</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>speta_redchedule_geo<span class="op">=</span>gpd.read_file(<span class="st">"../Python_FinalProject/Dataset/SEPTA.gpkg"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 <div id="9928f4d6-7803-44b7-93cd-4215ef02c12b" class="cell" data-execution_count="5">
@@ -569,12 +561,11 @@ dtype: int64</code></pre>
 </div>
 </div>
 <p><br> We primarily focus on rows where the <code>sched_Redu</code> column equals “Yes,” indicating that their schedules have been reduced. Through regular expression processing, we extract information from <code>Cut1_Notes</code> regarding increased peak or midday headway hours and organize it into a new column. <br></p>
-<div id="dab783af-5c0c-4423-abd4-5e192d255fd0" class="cell" data-execution_count="6">
+<div id="dab783af-5c0c-4423-abd4-5e192d255fd0" class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 先筛选出Sched_Redu为Yes的行</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>speta_reschedule <span class="op">=</span> speta_reschedule[speta_reschedule[<span class="st">"Sched_Redu"</span>] <span class="op">==</span> <span class="st">"Yes"</span>]</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>speta_reschedule.head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>speta_reschedule <span class="op">=</span> speta_reschedule[speta_reschedule[<span class="st">"Sched_Redu"</span>] <span class="op">==</span> <span class="st">"Yes"</span>]</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>speta_reschedule.head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="6">
 <div>
@@ -698,13 +689,12 @@ dtype: int64</code></pre>
 </div>
 </div>
 </div>
-<div id="62dc3b1b-c014-4918-9a15-ded17ec7109d" class="cell" data-execution_count="7">
+<div id="62dc3b1b-c014-4918-9a15-ded17ec7109d" class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 提取关键数值前的文字定位</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>re_reduced <span class="op">=</span> re.<span class="bu">compile</span>(<span class="vs">r"reduced by up to </span><span class="kw">(</span><span class="dv">\d</span><span class="op">+</span><span class="kw">)</span><span class="vs">"</span>, re.I)</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>re_peak    <span class="op">=</span> re.<span class="bu">compile</span>(<span class="vs">r"Peak headways will go from </span><span class="kw">(</span><span class="dv">\d</span><span class="op">+</span><span class="kw">)</span><span class="vs"> to </span><span class="kw">(</span><span class="dv">\d</span><span class="op">+</span><span class="kw">)</span><span class="vs">"</span>, re.I)</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>re_midday  <span class="op">=</span> re.<span class="bu">compile</span>(<span class="vs">r"Midday headways will go from </span><span class="kw">(</span><span class="dv">\d</span><span class="op">+</span><span class="kw">)</span><span class="vs"> to </span><span class="kw">(</span><span class="dv">\d</span><span class="op">+</span><span class="kw">)</span><span class="vs">"</span>, re.I)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>re_reduced <span class="op">=</span> re.<span class="bu">compile</span>(<span class="vs">r"reduced by up to </span><span class="kw">(</span><span class="dv">\d</span><span class="op">+</span><span class="kw">)</span><span class="vs">"</span>, re.I)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>re_peak    <span class="op">=</span> re.<span class="bu">compile</span>(<span class="vs">r"Peak headways will go from </span><span class="kw">(</span><span class="dv">\d</span><span class="op">+</span><span class="kw">)</span><span class="vs"> to </span><span class="kw">(</span><span class="dv">\d</span><span class="op">+</span><span class="kw">)</span><span class="vs">"</span>, re.I)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>re_midday  <span class="op">=</span> re.<span class="bu">compile</span>(<span class="vs">r"Midday headways will go from </span><span class="kw">(</span><span class="dv">\d</span><span class="op">+</span><span class="kw">)</span><span class="vs"> to </span><span class="kw">(</span><span class="dv">\d</span><span class="op">+</span><span class="kw">)</span><span class="vs">"</span>, re.I)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 <div id="e76c55b2-7edd-4399-a969-88bdbe5574b0" class="cell" data-execution_count="8">
@@ -713,32 +703,28 @@ dtype: int64</code></pre>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>notes_col <span class="op">=</span> <span class="st">"Cut1_Notes"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<div id="ece0cdb4-3274-43a5-83b8-f5788e678653" class="cell" data-execution_count="9">
+<div id="ece0cdb4-3274-43a5-83b8-f5788e678653" class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">#定义一个函数，用来专门抓取定位文字后的数字</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> fill_from_notes(row):</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Extract numeric info from the Cut1_Notes column and fill new fields."""</span></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    text <span class="op">=</span> <span class="bu">str</span>(row[notes_col])</span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Reduced by up to X</span></span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>    m <span class="op">=</span> re_reduced.search(text)</span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> m:</span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>        row[<span class="st">"Reduced by"</span>] <span class="op">=</span> <span class="bu">int</span>(m.group(<span class="dv">1</span>))</span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Peak headways will go from A to B</span></span>
-<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>    m <span class="op">=</span> re_peak.search(text)</span>
-<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> m:</span>
-<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>        row[<span class="st">"Peak headways(O) (mins)"</span>] <span class="op">=</span> <span class="bu">int</span>(m.group(<span class="dv">1</span>))</span>
-<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>        row[<span class="st">"Peak headways(C) (mins)"</span>] <span class="op">=</span> <span class="bu">int</span>(m.group(<span class="dv">2</span>))</span>
-<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Midday headways will go from C to D</span></span>
-<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>    m <span class="op">=</span> re_midday.search(text)</span>
-<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> m:</span>
-<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a>        row[<span class="st">"Midday headways(O) (mins)"</span>] <span class="op">=</span> <span class="bu">int</span>(m.group(<span class="dv">1</span>))</span>
-<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a>        row[<span class="st">"Midday headways(C) (mins)"</span>] <span class="op">=</span> <span class="bu">int</span>(m.group(<span class="dv">2</span>))</span>
-<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> row</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> fill_from_notes(row):</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Extract numeric info from the Cut1_Notes column and fill new fields."""</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    text <span class="op">=</span> <span class="bu">str</span>(row[notes_col])</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    m <span class="op">=</span> re_reduced.search(text)</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> m:</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>        row[<span class="st">"Reduced by"</span>] <span class="op">=</span> <span class="bu">int</span>(m.group(<span class="dv">1</span>))</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>    m <span class="op">=</span> re_peak.search(text)</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> m:</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>        row[<span class="st">"Peak headways(O) (mins)"</span>] <span class="op">=</span> <span class="bu">int</span>(m.group(<span class="dv">1</span>))</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>        row[<span class="st">"Peak headways(C) (mins)"</span>] <span class="op">=</span> <span class="bu">int</span>(m.group(<span class="dv">2</span>))</span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>    m <span class="op">=</span> re_midday.search(text)</span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> m:</span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>        row[<span class="st">"Midday headways(O) (mins)"</span>] <span class="op">=</span> <span class="bu">int</span>(m.group(<span class="dv">1</span>))</span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>        row[<span class="st">"Midday headways(C) (mins)"</span>] <span class="op">=</span> <span class="bu">int</span>(m.group(<span class="dv">2</span>))</span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> row</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 <div id="29dde4e6-ee7a-496c-805f-d6ed4a862a9a" class="cell" data-execution_count="10">
@@ -1599,20 +1585,19 @@ dtype: int64</code></pre>
 </div>
 </div>
 <p>To determine whether service reductions disproportionately affected the system’s highest-frequency core routes, we compared the “top ten most frequent routes” and “bottom ten least frequent routes” identified in Section 2.1 with the routes exhibiting the largest increases in headways in this section. The results indicate that the routes experiencing the most substantial reductions—defined here as increases of more than five minutes during peak periods or more than ten minutes during midday—are generally not among the system’s highest-frequency routes. Instead, many of the most affected routes (including 103, 110, 111, 112, 117, 118, 131, 93, 96, 98, and 99) are medium- to low-frequency suburban corridors. In contrast, major high-frequency trunk routes such as 52, 23, 42, and 33 do not appear in the list of severely reduced services. Overall, the findings suggest that the service cuts were not concentrated on the core, high-frequency network; rather, they tended to fall more heavily on routes that already operated with relatively lower baseline frequencies and are located toward the periphery of the system.</p>
-<div id="c49b21f6-cb52-4260-a712-a43983a2c4ff" class="cell" data-execution_count="16">
+<div id="c49b21f6-cb52-4260-a712-a43983a2c4ff" class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co">#最后一步把地理信息合并到我目前已经分析完的CSV表格上来</span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>cols_to_add <span class="op">=</span> [</span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Reduced by"</span>,</span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Peak headways(O) (mins)"</span>,</span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Peak headways(C) (mins)"</span>,</span>
-<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Midday headways(O) (mins)"</span>,</span>
-<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Midday headways(C) (mins)"</span>,</span>
-<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Difference in Midday headways"</span>,</span>
-<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Difference in Peak headways"</span></span>
-<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>]</span>
-<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>speta_reschedule_output_add <span class="op">=</span> speta_reschedule_output[[<span class="st">"GlobalID"</span>] <span class="op">+</span> cols_to_add]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>cols_to_add <span class="op">=</span> [</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Reduced by"</span>,</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Peak headways(O) (mins)"</span>,</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Peak headways(C) (mins)"</span>,</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Midday headways(O) (mins)"</span>,</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Midday headways(C) (mins)"</span>,</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Difference in Midday headways"</span>,</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Difference in Peak headways"</span></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>speta_reschedule_output_add <span class="op">=</span> speta_reschedule_output[[<span class="st">"GlobalID"</span>] <span class="op">+</span> cols_to_add]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 <div id="d4beb647-7bae-4ef9-ade0-5eee90767f75" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;jupyter&quot;,&quot;value&quot;:{&quot;outputs_hidden&quot;:true}}" data-execution_count="17">
@@ -1933,18 +1918,18 @@ dtype: int64</code></pre>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>res_gdf <span class="op">=</span> reschedule_result.to_crs(epsg<span class="op">=</span><span class="dv">4326</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<div id="8e12012b-c5e3-412a-9f86-c6d0a87b85b6" class="cell" data-execution_count="71">
+<div id="8e12012b-c5e3-412a-9f86-c6d0a87b85b6" class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>res_gdf_peak <span class="op">=</span> res_gdf.dropna(subset<span class="op">=</span>[<span class="st">"Difference in Peak headways"</span>])</span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>peak_map <span class="op">=</span> res_gdf_peak.explore(</span>
 <span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>    column<span class="op">=</span><span class="st">"Difference in Peak headways"</span>,</span>
-<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>    cmap<span class="op">=</span><span class="st">"RdPu"</span>,                      <span class="co"># 粉紫色系</span></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>    cmap<span class="op">=</span><span class="st">"RdPu"</span>,                      </span>
 <span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>    tooltip<span class="op">=</span>[<span class="st">"line_name"</span>, <span class="st">"Difference in Peak headways"</span>],</span>
 <span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>    popup<span class="op">=</span><span class="va">True</span>,</span>
 <span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>    legend<span class="op">=</span><span class="va">True</span>,</span>
-<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>    style_kwds<span class="op">=</span>{<span class="st">"weight"</span>: <span class="dv">1</span>},         <span class="co"># 线条更细</span></span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>    style_kwds<span class="op">=</span>{<span class="st">"weight"</span>: <span class="dv">1</span>},         </span>
 <span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>    tiles<span class="op">=</span><span class="st">"CartoDB Positron"</span>,    </span>
 <span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>    name<span class="op">=</span><span class="st">"Peak Headway Difference"</span></span>
 <span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>)</span>
@@ -4039,7 +4024,7 @@ Citywide transit share: 0.22858580680494048</code></pre>
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
+        var filterRegex = new RegExp("https:\/\/Julia88888888\.github\.io\/finalsite\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
